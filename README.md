@@ -7,7 +7,11 @@
 ## The purpose of PCAmatchR is to match cases to controls based on genotype principal components.
 
 ## Installation
-install.packages("PCAmatchR")
+devtools::install_github("machiela-lab/PCAmatchR")
+
+Or
+
+remotes::install_github("machiela-lab/PCAmatchR")
 
 ## Usage
 ``` r
