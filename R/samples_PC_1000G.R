@@ -1,4 +1,4 @@
-#' Principal component of 2504 individuals from the 1000 Genome Project
+#' Principal components of 2504 individuals from the 1000 Genome Project
 #'
 #' A sample dataset containing information about population, gender, and
 #' 20 principal components calculated from the 2504 individuals in Phase 3
