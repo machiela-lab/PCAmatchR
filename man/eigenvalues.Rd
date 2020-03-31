@@ -17,4 +17,11 @@ eigenvalues
 \description{
 A sample data set containing eivenvalues
 }
+\examples{
+  eigenvalues
+\dontrun{genome_values <- eigenvalues
+         values <- c(genome_values)$eigen_values
+}
+
+}
 \keyword{datasets}
