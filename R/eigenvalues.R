@@ -7,7 +7,7 @@
 #'   \item{eigen_values}{calculated eigennvalues}
 #' }
 #'
-#' @example
+#' @examples
 #'   eigenvalues
 #' \dontrun{genome_values <- eigenvalues
 #'          values <- c(genome_values)$eigen_values
