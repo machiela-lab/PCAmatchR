@@ -9,8 +9,8 @@
 #'
 #' @examples
 #'   eigenvalues
-#' \dontrun{genome_values <- eigenvalues
-#'          values <- c(genome_values)$eigen_values
+#' \donttest{genome_values <- eigenvalues
+#'           values <- c(genome_values)$eigen_values
 #' }
 #'
 #' @source {Machiela Lab}
