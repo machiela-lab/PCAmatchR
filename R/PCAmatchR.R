@@ -227,7 +227,12 @@ PCAmatchR<- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_contro
   colnames(merged_matches)[colnames(merged_matches) == "exact_class"] <- "match_strata"
 
 
-  returnlist<- (list(matches= merged_matches, weights= weight_output, NULL=NULL))
+  # Merge matches with PC data
+  merged_PC<- merge(merged_matches, PC, by=ids)
+	merged_PC<- merged_PC[order(merged_PC$match_final, -merged_PC[case_control]),]
+	rownames(merged_PC)<- 1:nrow(merged_PC)
+
+  returnlist<- (list(matches= merged_matches, weights= weight_output, PC_matches= merged_PC, NULL=NULL))
   returnlistfinal<- returnlist[-which(sapply(returnlist, is.null))]
   return(returnlistfinal)
 }
