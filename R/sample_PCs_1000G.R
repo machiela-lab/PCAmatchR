@@ -33,7 +33,7 @@
 #'
 #' }
 #' @examples
-#' \dontrun{head(samples_PCs_1000G)}
+#' \dontrun{head(sample_PCs_1000G)}
 #' \dontrun{genome_PC <- sample_PCs_1000G}
 #' \dontrun{# Create PCs
 #'            PC <- as.data.frame(genome_PC[,c(1,5:24)])
