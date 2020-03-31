@@ -22,6 +22,7 @@ Description: Matches cases to controls based on genotype principle components (P
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 2.10)
 Imports:
         optmatch
 RoxygenNote: 7.0.2
