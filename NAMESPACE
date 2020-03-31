@@ -2,5 +2,8 @@
 
 export(PCAmatchR)
 export(plot_matches)
+importFrom(graphics,legend)
+importFrom(graphics,plot)
+importFrom(graphics,segments)
 importFrom(optmatch,pairmatch)
 importFrom(utils,capture.output)

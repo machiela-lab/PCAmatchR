@@ -7,6 +7,7 @@
 #' @param line line
 #'
 #' @return A plot
+#' @importFrom graphics legend plot segments
 #' @export
 #'
 #' @examples
