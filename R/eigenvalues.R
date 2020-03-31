@@ -6,5 +6,12 @@
 #' \describe{
 #'   \item{eigen_values}{calculated eigennvalues}
 #' }
+#'
+#' @example
+#'   eigenvalues
+#' \dontrun{genome_values <- eigenvalues
+#'          values <- c(genome_values)$eigen_values
+#' }
+#'
 #' @source {Machiela Lab}
 "eigenvalues"

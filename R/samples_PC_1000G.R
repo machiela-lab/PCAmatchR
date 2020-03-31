@@ -32,5 +32,12 @@
 #'   \item{PC20}{principal component 20}
 #'
 #' }
+#' @examples
+#' \dontrun{head(samples_PCs_1000G)}
+#' \dontrun{genome_PC <- sample_PCs_1000G}
+#' \dontrun{# Create PCs
+#'            PC <- as.data.frame(genome_PC[,c(1,5:24)])
+#'            head(PC)}
+#'
 #' @source \url{https://www.internationalgenome.org}
 "sample_PCs_1000G"

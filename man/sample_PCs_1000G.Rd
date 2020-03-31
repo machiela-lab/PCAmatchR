@@ -43,4 +43,12 @@ A sample dataset containing information about population, gender, and
 20 principal components calculated from the 2504 individuals in Phase 3
 of the 1000 Genomes Project.
 }
+\examples{
+\dontrun{head(samples_PCs_1000G)}
+\dontrun{genome_PC <- sample_PCs_1000G}
+\dontrun{# Create PCs
+           PC <- as.data.frame(genome_PC[,c(1,5:24)])
+           head(PC)}
+
+}
 \keyword{datasets}
