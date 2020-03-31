@@ -19,8 +19,8 @@ A sample data set containing eivenvalues
 }
 \examples{
   eigenvalues
-\dontrun{genome_values <- eigenvalues
-         values <- c(genome_values)$eigen_values
+\donttest{genome_values <- eigenvalues
+          values <- c(genome_values)$eigen_values
 }
 
 }
