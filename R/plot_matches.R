@@ -27,7 +27,7 @@ plot_matches <- function(data=NULL, x_var=NULL, y_var=NULL, case_control=NULL, l
   if(is.null(x_var))
   {
     stop("Please specify the X variable for plotting.")
-  }
+  }  
   if(is.null(x_var))
   {
     stop("Please specify the Y variable for plotting.")
@@ -36,26 +36,26 @@ plot_matches <- function(data=NULL, x_var=NULL, y_var=NULL, case_control=NULL, l
   {
     stop("Please specify the case indicator variable for plotting.")
   }
-
-  plot(data$matches[,x_var], data$matches[,y_var], pch=20, xlab=x_var, ylab=y_var, col=c("blue","red")[factor(data$matches[,case_control])])
+  
+  plot(data$PC_matches[,x_var], data$PC_matches[,y_var], pch=20, xlab=x_var, ylab=y_var, col=c("blue","red")[factor(data$PC_matches[,case_control])])
   legend("bottomright", legend=(c("Controls","Cases")), pch=20, col=c("blue","red"), bty = "n")
-
+  
   if(line==T)
   {
     pair <- 0
-    for (i in 1:length(data$matches[,1]))
+    for (i in 1:length(data$PC_matches[,1]))
     {
-      if (data$matches$match_final[i]!=pair)
+      if (data$PC_matches$match_final[i]!=pair)
       {
-        case_x <- data$matches[,x_var][i]
-        case_y <- data$matches[,y_var][i]
-        pair <- data$matches$match_final[i]
+        case_x <- data$PC_matches[,x_var][i]
+        case_y <- data$PC_matches[,y_var][i]
+        pair <- data$PC_matches$match_final[i]
       }
       else
       {
-        segments(case_x,case_y,data$matches[,x_var][i],data$matches[,y_var][i], col="gray", lty=3)
+        segments(case_x,case_y,data$PC_matches[,x_var][i],data$PC_matches[,y_var][i], col="gray", lty=3)
       }
     }
   }
-
+  
 }
