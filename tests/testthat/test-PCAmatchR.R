@@ -35,29 +35,54 @@ context("PCAmatchR")
 test_that("PCamtachR throws error with invalid arguments", {
   skip_on_cran()
 
-  expect_error(test <- PCAmatchR(eigen_value = NULL,
-                                PC = PCs,
-                                data = mydata[,c(4:7)],
-                                ids = c("id"),
-                                case_control = c("CaCo"),
-                                num_controls = 1,
-                                num_PCs = 3)
+  expect_error(PCAmatchR(eigen_value = NULL,
+                         PC = PCs,
+                         data = mydata[,c(4:7)],
+                         ids = c("id"),
+                         case_control = c("CaCo"),
+                         num_controls = 1,
+                         num_PCs = 3)
                )
-  expect_error(test <- PCAmatchR(eigen_value = eigen_values,
-                                 PC = NULL,
-                                 data = mydata[,c(4:7)],
-                                 ids = c("id"),
-                                 case_control = c("CaCo"),
-                                 num_controls = 1,
-                                 num_PCs = 3)
+  expect_error(PCAmatchR(eigen_value = eigen_values,
+                         PC = NULL,
+                         data = mydata[,c(4:7)],
+                         ids = c("id"),
+                         case_control = c("CaCo"),
+                         num_controls = 1,
+                         num_PCs = 3)
                )
+  expect_error(PCAmatchR(eigen_value = eigen_values,
+                         PC = PCs,
+                         data = NULL,
+                         ids = c("id"),
+                         case_control = c("CaCo"),
+                         num_controls = 1,
+                         num_PCs = 3)
+               )
+  expect_error(PCAmatchR(eigen_value = eigen_values,
+                         PC = PCs,
+                         data = mydata[,c(4:7)],
+                         ids = NULL,
+                         case_control = c("CaCo"),
+                         num_controls = 1,
+                         num_PCs = 3)
+               )
+  expect_error(PCAmatchR(eigen_value = eigen_values,
+                         PC = PCs,
+                         data = mydata[,c(4:7)],
+                         ids = c("id"),
+                         case_control = NULL,
+                         num_controls = 1,
+                         num_PCs = 3)
+               )
+
  }
 )
 
 test_that("PCAmatchR works", {
   skip_on_cran()
 
-  expect_named(test<- PCAmatchR(eigen_value= eigen_values,
+  expect_named(PCAmatchR(eigen_value= eigen_values,
                                 PC = PCs,
                                 data = mydata[,c(4:7)],
                                 ids = c("id"),
