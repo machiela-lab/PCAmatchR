@@ -33,8 +33,6 @@ context("PCAmatchR")
 
 
 test_that("PCamtachR throws error with invalid arguments", {
-  skip_on_cran()
-
   expect_error(PCAmatchR(eigen_value = NULL,
                          PC = PCs,
                          data = mydata[,c(4:7)],
@@ -80,8 +78,6 @@ test_that("PCamtachR throws error with invalid arguments", {
 )
 
 test_that("PCAmatchR works", {
-  skip_on_cran()
-
   expect_named(PCAmatchR(eigen_value= eigen_values,
                                 PC = PCs,
                                 data = mydata[,c(4:7)],
