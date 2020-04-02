@@ -13,6 +13,21 @@ Or
 
 remotes::install_github("machiela-lab/PCAmatchR")
 
+Installation
+
+</h2>
+
+To install the CRAN version:
+
+    TBD
+
+To install the development version from GitHub:
+
+    devtools::install_github("machiela-lab/PCAmatchR")
+
+<h2 id="usage">
+
+
 ## Usage
 ``` r
 ##########
