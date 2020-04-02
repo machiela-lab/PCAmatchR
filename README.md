@@ -141,10 +141,5 @@ test<- PCAmatchR(PC = pcs,
 test$matches
 test$weights
 
-
 ```
 
-``` r
-library(PCAmatchR)
-## basic example code
-```
