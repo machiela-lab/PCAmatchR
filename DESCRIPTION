@@ -20,6 +20,8 @@ Description: Matches cases to controls based on genotype principle components (P
       In order to produce better results, matches are based on the weighted distance of PCs 
       where the weights are equal to the % variance explained by that PC. 
 License: MIT + file LICENSE
+URL: https://github.com/machiela-lab/PCAmatchR
+BugReports: https://github.com/machiela-lab/PCAmatchR/issues
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 2.10)
