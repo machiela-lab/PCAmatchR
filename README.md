@@ -38,7 +38,7 @@ Available functions
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr class="even">
 <td><code>PCAmatchR</code></td>
 <td>Main function. Weighted matching of controls to cases using PCA results.</td>
 </tr>
