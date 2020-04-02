@@ -77,7 +77,7 @@ Available sample data sets
 </tr>
 <tr class="odd">
 <td><code>eigenvalues</code></td>
-<td>A sample data set containing eigen values.</td>
+<td>A sample data set containing eigenvalues.</td>
 </tr>
 </tbody>
 <table>
