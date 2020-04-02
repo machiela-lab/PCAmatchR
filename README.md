@@ -28,7 +28,7 @@ Available functions
 
 <table>
 <colgroup>
-<col width="29%" />
+<col width="30%" />
 <col width="70%" />
 </colgroup>
 <thead>
