@@ -148,10 +148,3 @@ test$weights
 library(PCAmatchR)
 ## basic example code
 ```
-PCAmatchR(PC = pcs,
-                 eigen_value = eigen_vals,
-                 data = cov_data,
-                 ids = c("sample"),
-                 case_control = c("case"),
-                 num_controls = 1,
-                 num_PCs = dim(cov_data)[1])
