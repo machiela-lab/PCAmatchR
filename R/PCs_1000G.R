@@ -33,11 +33,11 @@
 #'
 #' }
 #' @examples
-#' \donttest{head(sample_PCs_1000G)}
-#' \donttest{genome_PC <- sample_PCs_1000G}
+#' \donttest{head(PCs_1000G)}
+#' \donttest{genome_PC <- PCs_1000G}
 #' \donttest{# Create PCs
 #'            PC <- as.data.frame(genome_PC[,c(1,5:24)])
 #'            head(PC)}
 #'
 #' @source \url{https://www.internationalgenome.org}
-"sample_PCs_1000G"
+"PCs_1000G"

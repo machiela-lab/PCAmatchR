@@ -3,13 +3,13 @@ context("plot_maker")
  ##### Input match_maker sample data to be used in test_that
 
  # Create PC data frame
- pcs<- as.data.frame(sample_PCs_1000G[,c(1,5:24)])
+ pcs<- as.data.frame(PCs_1000G[,c(1,5:24)])
 
  # Create eigen values vector
  eigen_vals<- c(eigenvalues)$eigen_values
 
  # Create Covarite data frame
- cov_data<- sample_PCs_1000G[,c(1:4)]
+ cov_data<- PCs_1000G[,c(1:4)]
 
  # Generate a case status variable
  cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
