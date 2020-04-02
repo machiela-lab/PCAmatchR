@@ -1,91 +1,100 @@
 context("PCAmatchR")
 
- ##### Generate sample data to be used in test_that
- set.seed(18201) # make sure data is repeatable
- N=100
- Sigma <- matrix(.2,3,3)
- diag(Sigma) <- 1
- data<-matrix(mvrnorm(N, mu=rep(0, 3), Sigma, empirical = FALSE) , nrow=N, ncol = 3)
+ ##### Input PCAmatchR sample data to be used in test_that
 
- # User original data
- mydata<- as.data.frame(data) # create dataframe
- mydata$sex<- rbinom(n=100, size=1, prob=0.5)
- mydata$race<- rbinom(n=100, size=2, prob=.50)
- mydata$CaCo<- c(rep(1, 10), rep(0, 90)) # case control status
+ # Create PC data frame
+ pcs<- as.data.frame(sample_PCs_1000G[,c(1,5:24)])
 
- mydata$id<- c(1001:1100) # create an id variable
- # head(mydata)
+ # Create eigen values vector
+ eigen_vals<- c(eigenvalues)$eigen_values
 
- # Preform PCA on user data
- data.pca <- stats::prcomp(mydata[,1:3], scale = TRUE, center = TRUE)
- # summary(data.pca)
+ # Create Covarite data frame
+ cov_data<- sample_PCs_1000G[,c(1:4)]
 
- # Create Eigen values
- eig.val <- factoextra::get_eigenvalue(data.pca)
- eigen_values<- eig.val[,1]
- # eigen_values
-
- # Create Individual PCs
- data.ind <- factoextra::get_pca_ind(data.pca)
- PCs<- as.data.frame(data.ind$coor) # This is the main loading for PCAmatchR
- PCs$id<- mydata$id
- # head(PCs)
+ # Generate a case status variable
+ cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
 
 
 test_that("PCamtachR throws error with invalid arguments", {
-  expect_error(PCAmatchR(eigen_value = NULL,
-                         PC = PCs,
-                         data = mydata[,c(4:7)],
-                         ids = c("id"),
-                         case_control = c("CaCo"),
+  expect_error(PCAmatchR(PC = NULL,
+                         eigen_value = eigen_vals,
+                         data = cov_data,
+                         ids = c("sample"),
+                         case_control = c("case"),
                          num_controls = 1,
-                         num_PCs = 3)
+                         num_PCs = dim(cov_data)[1])
                )
-  expect_error(PCAmatchR(eigen_value = eigen_values,
-                         PC = NULL,
-                         data = mydata[,c(4:7)],
-                         ids = c("id"),
-                         case_control = c("CaCo"),
+  expect_error(PCAmatchR(PC = pcs,
+                         eigen_value = NULL,
+                         data = cov_data,
+                         ids = c("sample"),
+                         case_control = c("case"),
                          num_controls = 1,
-                         num_PCs = 3)
-               )
-  expect_error(PCAmatchR(eigen_value = eigen_values,
-                         PC = PCs,
+                         num_PCs = dim(cov_data)[1])
+  )
+  expect_error(PCAmatchR(PC = pcs,
+                         eigen_value = eigen_vals,
                          data = NULL,
-                         ids = c("id"),
-                         case_control = c("CaCo"),
+                         ids = c("sample"),
+                         case_control = c("case"),
                          num_controls = 1,
-                         num_PCs = 3)
-               )
-  expect_error(PCAmatchR(eigen_value = eigen_values,
-                         PC = PCs,
-                         data = mydata[,c(4:7)],
+                         num_PCs = dim(cov_data)[1])
+  )
+  expect_error(PCAmatchR(PC = pcs,
+                         eigen_value = eigen_vals,
+                         data = cov_data,
                          ids = NULL,
-                         case_control = c("CaCo"),
+                         case_control = c("case"),
                          num_controls = 1,
-                         num_PCs = 3)
-               )
-  expect_error(PCAmatchR(eigen_value = eigen_values,
-                         PC = PCs,
-                         data = mydata[,c(4:7)],
-                         ids = c("id"),
+                         num_PCs = dim(cov_data)[1])
+  )
+  expect_error(PCAmatchR(PC = pcs,
+                         eigen_value = eigen_vals,
+                         data = cov_data,
+                         ids = c("sample"),
                          case_control = NULL,
                          num_controls = 1,
-                         num_PCs = 3)
-               )
+                         num_PCs = dim(cov_data)[1])
+  )
 
  }
 )
 
 test_that("PCAmatchR works", {
-  expect_named(PCAmatchR(eigen_value= eigen_values,
-                                PC = PCs,
-                                data = mydata[,c(4:7)],
-                                ids = c("id"),
-                                case_control = c("CaCo"),
-                                num_controls = 1,
-                                num_PCs = 3)
+  expect_named(PCAmatchR(PC = pcs,
+                         eigen_value = eigen_vals,
+                         data = cov_data,
+                         ids = c("sample"),
+                         case_control = c("case"),
+                         num_controls = 1,
+                         num_PCs = dim(cov_data)[1])
               )
 
  }
+)
+
+test_that("matches has correct dimensions", {
+  test1<- PCAmatchR(PC = pcs,
+                    eigen_value = eigen_vals,
+                    data = cov_data,
+                    ids = c("sample"),
+                    case_control = c("case"),
+                    num_controls = 1,
+                    num_PCs = dim(cov_data)[1])
+  expect_equal(dim(test1$matches)[1], 198)
+  expect_equal(dim(test1$matches)[2], 8)
+ }
+)
+
+test_that("weights has correct dimension", {
+  test1<- PCAmatchR(PC = pcs,
+                    eigen_value = eigen_vals,
+                    data = cov_data,
+                    ids = c("sample"),
+                    case_control = c("case"),
+                    num_controls = 1,
+                    num_PCs = dim(cov_data)[1])
+  expect_equal(dim(test1$weights)[2], 20)
+
+}
 )
