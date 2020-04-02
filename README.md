@@ -48,7 +48,36 @@ Available functions
 </tr>
 </tbody>
 <table>
-    
+
+<h2 id="available-datasets">
+
+Available sample data sets
+
+</h2>
+
+<table>
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data set</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sample_PCs_1000G</code></td>
+<td>Principal components of 2504 individuals from Phase 3 of 1000 Genomes Project.</td>
+</tr>
+<tr class="odd">
+<td><code>eigenvalues</code></td>
+<td>A sample data set containing eigen values.</td>
+</tr>
+</tbody>
+<table>
+
 ## Usage
 ``` r
 ##########
