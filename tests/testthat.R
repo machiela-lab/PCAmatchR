@@ -1,7 +1,5 @@
 library(testthat)
 library(PCAmatchR)
-library(MASS)
-library(factoextra)
-library(DOS)
 
 test_check("PCAmatchR")
+test_check("plot_matches")
