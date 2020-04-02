@@ -20,8 +20,28 @@ To install the development version from GitHub:
 
     devtools::install_github("machiela-lab/PCAmatchR")
 
-<h2 id="usage">
+<h2 id="available-functions">
 
+Available functions
+<table>
+<colgroup>
+<col width="29%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>PCAmatchR</code></td>
+<td>Main function. Weighted matching of controls to cases using PCA results.</td>
+</tr>
+<tr class="odd">
+<td><code>plot_matches</code></td>
+<td>Plot matches from <code>PCAmatchR</code> output.</td>
 
 ## Usage
 ``` r
