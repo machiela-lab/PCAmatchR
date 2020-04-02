@@ -3,8 +3,12 @@
 
 <!-- badges: start -->
 <!-- badges: end -->
-## Overview
-The purpose of PCAmatchR is to match cases to controls based on genotype principal components.
+
+<h2 id="overview">
+
+Overview
+
+*PCAmatchR* optimally matches a set of population-based controls to cases. *PCAmatchR* converts user-provided principal components into a Mahalanobis distance metric for selecting a set of well-matched controls for each case.
 
 <h2 id="install">
 
