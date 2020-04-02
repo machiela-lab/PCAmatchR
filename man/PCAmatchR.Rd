@@ -45,13 +45,14 @@ A list of matches and weights.
 PCAmatchR
 }
 \examples{
-\dontrun{test<- PCAmatchR(eigen_value= eigen_values,
-                            PC= PCs,
-                            data=mydata[,c(4:7)],
-                            ids=c("id"),
-                            case_control=c("CaCo"),
+\dontrun{test<- PCAmatchR(PC= pcs,
+                            eigen_value= eigen_vals,
+                            data=cov_data,
+                            ids=c("sample"),
+                            case_control=c("case"),
                             num_controls=1,
-                            num_PCs= 3,
-                            weight_dist=FALSE)}
+                            num_PCs= dim(cov_data)[1],
+                            exact_match= NULL,
+                            weight_dist=TRUE)}
 
 }
