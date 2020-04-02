@@ -41,7 +41,6 @@ Available functions
 <td><code>PCAmatchR</code></td>
 <td>Main function. Weighted matching of controls to cases using PCA results.</td>
 </tr>
-<tr class="even">
 <td><code>plot_matches</code></td>
 <td>Plot matches from <code>PCAmatchR</code> output.</td>
 </tr>
