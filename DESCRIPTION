@@ -29,8 +29,5 @@ Imports:
         optmatch
 RoxygenNote: 7.0.2
 Suggests: 
-    testthat,
-    MASS,
-    DOS,
-    factoextra
+    testthat
     
