@@ -107,12 +107,12 @@ Available sample data sets
 
 # 1 to 1 matching
 test <- match_maker(PC = pcs,
-                   eigen_value = eigen_vals,
-                   data = cov_data,
-                   ids = c("sample"),
-                   case_control = c("case"),
-                   num_controls = 1,
-                   num_PCs = dim(cov_data)[1])
+                    eigen_value = eigen_vals,
+                    data = cov_data,
+                    ids = c("sample"),
+                    case_control = c("case"),
+                    num_controls = 1,
+                    num_PCs = dim(cov_data)[1])
 test$matches
 test$weights
 
