@@ -6,7 +6,7 @@ context("plot_maker")
  pcs<- as.data.frame(PCs_1000G[,c(1,5:24)])
 
  # Create eigen values vector
- eigen_vals<- c(eigenvalues)$eigen_values
+ eigen_vals<- c(eigenvalues_1000G)$eigen_values
 
  # Create Covarite data frame
  cov_data<- PCs_1000G[,c(1:4)]

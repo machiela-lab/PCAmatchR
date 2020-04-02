@@ -78,7 +78,7 @@ Available sample data sets
 <td>Principal components of 2504 individuals from Phase 3 of 1000 Genomes Project.</td>
 </tr>
 <tr class="odd">
-<td><code>eigenvalues</code></td>
+<td><code>eigenvalues_1000G</code></td>
 <td>A sample data set containing eigenvalues.</td>
 </tr>
 </tbody>
@@ -92,7 +92,7 @@ Available sample data sets
  pcs<- as.data.frame(PCs_1000G[,c(1,5:24)])
 
  # Create eigen values vector
- eigen_vals<- c(eigenvalues)$eigen_values
+ eigen_vals<- c(eigevalues_1000G)$eigen_values
 
  # Create Covarite data frame
  cov_data<- PCs_1000G[,c(1:4)]

@@ -1,4 +1,4 @@
-#' eigenvalues
+#' eigenvalues_1000G
 #'
 #' A sample data set containing eivenvalues
 #'
@@ -8,10 +8,10 @@
 #' }
 #'
 #' @examples
-#'   eigenvalues
+#'   eigenvalues_1000G
 #' \donttest{genome_values <- eigenvalues
 #'           values <- c(genome_values)$eigen_values
 #' }
 #'
 #' @source {Machiela Lab}
-"eigenvalues"
+"eigenvalues_1000G"
