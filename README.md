@@ -10,7 +10,9 @@ Overview
 
 </h2>
 
-*PCAmatchR* optimally matches a set of population-based controls to cases. *PCAmatchR* converts user-provided principal components into a Mahalanobis distance metric for selecting a set of well-matched controls for each case.
+*PCAmatchR* optimally matches a set of population-based controls to cases. *PCAmatchR* converts user-provided principal components (PC) into a Mahalanobis distance metric for selecting a set of well-matched controls for each case.
+
+*PCAmatchR* takes as input user defined PCs and eigenvalues and directly outputs optimal case and control matches.
 
 <h2 id="install">
 
