@@ -1,6 +1,6 @@
-context("PCAmatchR")
+context("match_maker")
 
- ##### Input PCAmatchR sample data to be used in test_that
+ ##### Input match_maker sample data to be used in test_that
 
  # Create PC data frame
  pcs<- as.data.frame(sample_PCs_1000G[,c(1,5:24)])
@@ -16,7 +16,7 @@ context("PCAmatchR")
 
 
 test_that("PCamtachR throws error with invalid arguments", {
-  expect_error(PCAmatchR(PC = NULL,
+  expect_error(match_maker(PC = NULL,
                          eigen_value = eigen_vals,
                          data = cov_data,
                          ids = c("sample"),
@@ -24,7 +24,7 @@ test_that("PCamtachR throws error with invalid arguments", {
                          num_controls = 1,
                          num_PCs = dim(cov_data)[1])
                )
-  expect_error(PCAmatchR(PC = pcs,
+  expect_error(match_maker(PC = pcs,
                          eigen_value = NULL,
                          data = cov_data,
                          ids = c("sample"),
@@ -32,7 +32,7 @@ test_that("PCamtachR throws error with invalid arguments", {
                          num_controls = 1,
                          num_PCs = dim(cov_data)[1])
   )
-  expect_error(PCAmatchR(PC = pcs,
+  expect_error(match_maker(PC = pcs,
                          eigen_value = eigen_vals,
                          data = NULL,
                          ids = c("sample"),
@@ -40,7 +40,7 @@ test_that("PCamtachR throws error with invalid arguments", {
                          num_controls = 1,
                          num_PCs = dim(cov_data)[1])
   )
-  expect_error(PCAmatchR(PC = pcs,
+  expect_error(match_maker(PC = pcs,
                          eigen_value = eigen_vals,
                          data = cov_data,
                          ids = NULL,
@@ -48,7 +48,7 @@ test_that("PCamtachR throws error with invalid arguments", {
                          num_controls = 1,
                          num_PCs = dim(cov_data)[1])
   )
-  expect_error(PCAmatchR(PC = pcs,
+  expect_error(match_maker(PC = pcs,
                          eigen_value = eigen_vals,
                          data = cov_data,
                          ids = c("sample"),
@@ -60,8 +60,8 @@ test_that("PCamtachR throws error with invalid arguments", {
  }
 )
 
-test_that("PCAmatchR works", {
-  expect_named(PCAmatchR(PC = pcs,
+test_that("match_maker works", {
+  expect_named(match_maker(PC = pcs,
                          eigen_value = eigen_vals,
                          data = cov_data,
                          ids = c("sample"),
@@ -74,7 +74,7 @@ test_that("PCAmatchR works", {
 )
 
 test_that("matches has correct dimensions", {
-  test1<- PCAmatchR(PC = pcs,
+  test1<- match_maker(PC = pcs,
                     eigen_value = eigen_vals,
                     data = cov_data,
                     ids = c("sample"),
@@ -87,7 +87,7 @@ test_that("matches has correct dimensions", {
 )
 
 test_that("weights has correct dimension", {
-  test1<- PCAmatchR(PC = pcs,
+  test1<- match_maker(PC = pcs,
                     eigen_value = eigen_vals,
                     data = cov_data,
                     ids = c("sample"),
@@ -96,5 +96,5 @@ test_that("weights has correct dimension", {
                     num_PCs = dim(cov_data)[1])
   expect_equal(dim(test1$weights)[2], 20)
 
-}
+ }
 )

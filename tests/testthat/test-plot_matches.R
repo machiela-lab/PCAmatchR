@@ -1,6 +1,6 @@
 context("plot_matches")
 
- ##### Input PCAmatchR sample data to be used in test_that
+ ##### Input match_maker sample data to be used in test_that
 
  # Create PC data frame
  pcs<- as.data.frame(sample_PCs_1000G[,c(1,5:24)])
@@ -14,8 +14,8 @@ context("plot_matches")
  # Generate a case status variable
  cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
 
- # Generate PCAmatchR_output
- PCAmatchR_output<- PCAmatchR(PC = pcs,
+ # Generate match_maker_output
+ match_maker_output<- match_maker(PC = pcs,
                               eigen_value = eigen_vals,
                               data = cov_data,
                               ids = c("sample"),
@@ -31,19 +31,19 @@ test_that("plot_matches throws error with invalid arguments", {
                             case_control="case",
                             line=T)
   )
-  expect_error(plot_matches(data=PCAmatchR_output,
+  expect_error(plot_matches(data=match_maker_output,
                             x_var=NULL,
                             y_var="PC2",
                             case_control="case",
                             line=T)
   )
-  expect_error(plot_matches(data=PCAmatchR_output,
+  expect_error(plot_matches(data=match_maker_output,
                             x_var="PC1",
                             y_var=NULL,
                             case_control="case",
                             line=T)
   )
-  expect_error(plot_matches(data=PCAmatchR_output,
+  expect_error(plot_matches(data=match_maker_output,
                             x_var="PC1",
                             y_var="PC2",
                             case_control=NULL,
@@ -55,7 +55,7 @@ test_that("plot_matches throws error with invalid arguments", {
 
 test_that("plot_matches works", {
   skip_on_cran()
-  expect_output(plot_matches(data=PCAmatchR_output,
+  expect_output(plot_matches(data=match_maker_output,
                             x_var="PC1",
                             y_var="PC2",
                             case_control="case",

@@ -1,4 +1,4 @@
-#' PCAmatchR
+#' match_maker
 #'
 #' @param PC Individual level principle components.
 #' @param eigen_value Computed eigen value for each PC. Used to calculate the percent variance explained by each PC.
@@ -17,7 +17,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{test<- PCAmatchR(PC= pcs,
+#' \dontrun{test<- match_maker(PC= pcs,
 #'                             eigen_value= eigen_vals,
 #'                             data=cov_data,
 #'                             ids=c("sample"),
@@ -27,7 +27,7 @@
 #'                             exact_match= NULL,
 #'                             weight_dist=TRUE)}
 #'
-PCAmatchR<- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_control=NULL, num_controls=1, num_PCs= 1000, exact_match=NULL, weight_dist=TRUE, weights=NULL){
+match_maker <- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_control=NULL, num_controls=1, num_PCs= 1000, exact_match=NULL, weight_dist=TRUE, weights=NULL){
 
   #####################
   # Warnings Messages #
@@ -239,5 +239,5 @@ PCAmatchR<- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_contro
 }
 
 #################
-# End PCAmatchR #
+# End match_maker #
 #################
