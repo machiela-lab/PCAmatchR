@@ -49,8 +49,8 @@ Available functions
 <td><code>match_maker</code></td>
 <td>Main function. Weighted matching of controls to cases using PCA results.</td>
 </tr>
-<td><code>plot_matches</code></td>
-<td>Plot matches from <code>match_maker</code> output.</td>
+<td><code>plot_maker</code></td>
+<td>Easily make a plot of matches from <code>match_maker</code> output.</td>
 </tr>
 </tbody>
 <table>
