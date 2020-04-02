@@ -46,11 +46,11 @@ Available functions
 </tr>
 </thead>
 <tbody>
-<td><code>PCAmatchR</code></td>
+<td><code>match_maker</code></td>
 <td>Main function. Weighted matching of controls to cases using PCA results.</td>
 </tr>
 <td><code>plot_matches</code></td>
-<td>Plot matches from <code>PCAmatchR</code> output.</td>
+<td>Plot matches from <code>match_maker</code> output.</td>
 </tr>
 </tbody>
 <table>
@@ -86,7 +86,7 @@ Available sample data sets
 
 ## Usage
 ``` r
-##### Input PCAmatchR sample data
+##### Input match_maker sample data
 
  # Create PC data frame
  pcs<- as.data.frame(sample_PCs_1000G[,c(1,5:24)])
@@ -101,43 +101,43 @@ Available sample data sets
  cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
 
 
-#################
-# Run PCAmatchR #
-#################
+###################
+# Run match_maker #
+###################
 
 # 1 to 1 matching
-test<- PCAmatchR(PC = pcs,
-                 eigen_value = eigen_vals,
-                 data = cov_data,
-                 ids = c("sample"),
-                 case_control = c("case"),
-                 num_controls = 1,
-                 num_PCs = dim(cov_data)[1])
+test <- match_maker(PC = pcs,
+                   eigen_value = eigen_vals,
+                   data = cov_data,
+                   ids = c("sample"),
+                   case_control = c("case"),
+                   num_controls = 1,
+                   num_PCs = dim(cov_data)[1])
 test$matches
 test$weights
 
 
 # 1 to 2 matching
-test<- PCAmatchR(PC = pcs,
-                 eigen_value = eigen_vals,
-                 data = cov_data,
-                 ids = c("sample"),
-                 case_control = c("case"),
-                 num_controls = 2,
-                 num_PCs = dim(cov_data)[1])
+test <- match_maker(PC = pcs,
+                    eigen_value = eigen_vals,
+                    data = cov_data,
+                    ids = c("sample"),
+                    case_control = c("case"),
+                    num_controls = 2,
+                    num_PCs = dim(cov_data)[1])
 test$matches
 test$weights
 
 
 # 1 to 1 matching with exact "gender" matching
-test<- PCAmatchR(PC = pcs,
-                 eigen_value = eigen_vals,
-                 data = cov_data,
-                 ids = c("sample"),
-                 case_control = c("case"),
-                 num_controls = 1,
-                 num_PCs = dim(cov_data)[1],
-                 exact_match=c("gender"))
+test <- match_maker(PC = pcs,
+                    eigen_value = eigen_vals,
+                    data = cov_data,
+                    ids = c("sample"),
+                    case_control = c("case"),
+                    num_controls = 1,
+                    num_PCs = dim(cov_data)[1],
+                    exact_match=c("gender"))
 test$matches
 test$weights
 
