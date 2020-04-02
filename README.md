@@ -23,6 +23,9 @@ To install the development version from GitHub:
 <h2 id="available-functions">
 
 Available functions
+
+</h2>
+
 <table>
 <colgroup>
 <col width="29%" />
