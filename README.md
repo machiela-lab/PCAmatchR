@@ -42,7 +42,8 @@ Available functions
 <tr class="odd">
 <td><code>plot_matches</code></td>
 <td>Plot matches from <code>PCAmatchR</code> output.</td>
-
+<table>
+    
 ## Usage
 ``` r
 ##########
