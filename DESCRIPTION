@@ -1,6 +1,6 @@
 Package: PCAmatchR
 Title: Match Cases to Controls Based on Genotype Principal Components
-Version: 0.1.0.
+Version: 0.1.0
 Authors@R: 
     c(person(given = "Derek W.",
              family = "Brown",
@@ -15,7 +15,7 @@ Authors@R:
              role = "ctb"),
       person(given = "NCI",
              role = c("cph", "fnd")))
-Maintainer: Derek Brown <derek.brown@nih.gov>
+Maintainer: Derek W. Brown <derek.brown@nih.gov>
 Description: Matches cases to controls based on genotype principle components (PC).
       In order to produce better results, matches are based on the weighted distance of PCs 
       where the weights are equal to the % variance explained by that PC. 
