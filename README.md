@@ -86,6 +86,8 @@ Available sample data sets
 
 ## Usage
 ``` r
+library(PCAmatchR)
+
 ##### Input match_maker sample data
 
  # Create PC data frame
