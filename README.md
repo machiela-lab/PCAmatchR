@@ -20,9 +20,9 @@ Installation
 
 </h2>
 
-To install the CRAN version:
+To install the release version from CRAN:
 
-    TBD
+    install.packages("PCAmatchR")
 
 To install the development version from GitHub:
 
