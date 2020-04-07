@@ -1,5 +1,7 @@
 context("match_maker")
 
+ library(optmatch)
+
  ##### Input match_maker sample data to be used in test_that
 
  # Create PC data frame
@@ -98,3 +100,5 @@ test_that("weights has correct dimension", {
 
  }
 )
+
+
