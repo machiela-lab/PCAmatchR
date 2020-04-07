@@ -27,9 +27,8 @@ BugReports: https://github.com/machiela-lab/PCAmatchR/issues
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 2.10)
-Imports:
-        optmatch
 RoxygenNote: 7.0.2
-Suggests: 
+Suggests:
+    optmatch
     testthat
     
