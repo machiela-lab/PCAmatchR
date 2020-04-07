@@ -87,6 +87,7 @@ Available sample data sets
 ## Usage
 ``` r
 library(PCAmatchR)
+library(optmatch)
 
 ##### Input match_maker sample data
 
