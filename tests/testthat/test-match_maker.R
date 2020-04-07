@@ -1,7 +1,5 @@
 context("match_maker")
 
- library(optmatch)
-
  ##### Input match_maker sample data to be used in test_that
 
  # Create PC data frame
@@ -16,6 +14,20 @@ context("match_maker")
  # Generate a case status variable
  cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
 
+ test_that("match_maker throws an error without optmatch loaded", {
+   expect_error(match_maker(PC = pcs,
+                            eigen_value = eigen_vals,
+                            data = cov_data,
+                            ids = c("sample"),
+                            case_control = c("case"),
+                            num_controls = 1,
+                            num_PCs = dim(cov_data)[1])
+                )
+
+  }
+)
+
+library(optmatch)
 
 test_that("PCamtachR throws error with invalid arguments", {
   expect_error(match_maker(PC = NULL,
@@ -101,4 +113,16 @@ test_that("weights has correct dimension", {
  }
 )
 
+test_that("match_maker throws an error without optmatch loaded", {
+  expect_named(match_maker(PC = pcs,
+                           eigen_value = eigen_vals,
+                           data = cov_data,
+                           ids = c("sample"),
+                           case_control = c("case"),
+                           num_controls = 1,
+                           num_PCs = dim(cov_data)[1])
+  )
+
+}
+)
 
