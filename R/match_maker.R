@@ -12,11 +12,11 @@
 #' @param weights Optional user defined weights used to compute the weighted Mahalanobis distance metric.
 #'
 #' @return A list of matches and weights.
-#' @importFrom optmatch pairmatch
 #' @importFrom utils capture.output
 #' @export
 #'
 #' @examples
+#' library(optmatch)
 #' \dontrun{test<- match_maker(PC= pcs,
 #'                             eigen_value= eigen_vals,
 #'                             data=cov_data,

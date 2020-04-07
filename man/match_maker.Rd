@@ -45,6 +45,7 @@ A list of matches and weights.
 match_maker
 }
 \examples{
+library(optmatch)
 \dontrun{test<- match_maker(PC= pcs,
                             eigen_value= eigen_vals,
                             data=cov_data,
