@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-#' library(optmatch)
+#' \dontrun{library(optmatch)}
 #' \dontrun{test<- match_maker(PC= pcs,
 #'                             eigen_value= eigen_vals,
 #'                             data=cov_data,
@@ -28,6 +28,18 @@
 #'                             weight_dist=TRUE)}
 #'
 match_maker <- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_control=NULL, num_controls=1, num_PCs= 1000, exact_match=NULL, weight_dist=TRUE, weights=NULL){
+
+  ################################
+  # Check for "optmatch" package #
+  ################################
+
+  if (!"optmatch" %in% tolower((.packages()))) {
+    stop('Error: package optmatch (>= 0.9-1) not loaded.  To run the PCAmatchR match_maker()
+          function, you must manually install and load the "optmatch" package first and
+          agree to the terms of its license.  This is required due to software license
+          issues.'
+    )
+  }
 
   #####################
   # Warnings Messages #
