@@ -34,7 +34,7 @@ match_maker <- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_con
   ################################
 
   if (!"optmatch" %in% tolower((.packages()))) {
-    stop('Error: package optmatch (>= 0.9-1) not loaded.  To run the PCAmatchR match_maker()
+    stop('The package optmatch (>= 0.9-1) not loaded.  To run the PCAmatchR match_maker()
           function, you must manually install and load the "optmatch" package first and
           agree to the terms of its license.  This is required due to software license
           issues.'
