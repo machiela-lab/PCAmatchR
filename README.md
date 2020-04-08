@@ -161,4 +161,5 @@ Reference
 
 </h2>
 
+Hansen BB, Klopfer SO. Optimal full matching and related designs via network flows. Journal of computational and Graphical Statistics. 2006 Sep 1;15(3):609-27.
 
