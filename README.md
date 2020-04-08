@@ -14,6 +14,15 @@ Overview
 
 *PCAmatchR* takes as input user defined PCs and eigenvalues and directly outputs optimal case and control matches.
 
+
+<h2 id="important">
+
+Important Note
+
+</h2>
+
+The *optmatch* code is not contained in this package.  In order to use *PCAmatchR*, users must manually install and load the *optmatch* package (>=0.9-1) separately and accept its license.  Manual loading is necessary due to software license issues.  If the *optmatch* package is not loaded, the *PCAmatchR* main function, `match_maker()`, will fail and display an error message.  For more information about the *optmatch* package, please see the reference below.
+
 <h2 id="install">
 
 Installation
@@ -145,4 +154,11 @@ test$matches
 test$weights
 
 ```
+
+<h2 id="reference">
+
+Reference
+
+</h2>
+
 
