@@ -2,7 +2,7 @@
 % Please edit documentation in R/match_maker.R
 \name{match_maker}
 \alias{match_maker}
-\title{match_maker}
+\title{Weighted matching of controls to cases using PCA results.}
 \usage{
 match_maker(
   PC = NULL,
@@ -42,7 +42,7 @@ match_maker(
 A list of matches and weights.
 }
 \description{
-match_maker
+Weighted matching of controls to cases using PCA results.
 }
 \examples{
 # Create PC data frame by subsetting provided example dataset

@@ -1,4 +1,4 @@
-#' match_maker
+#' Weighted matching of controls to cases using PCA results.
 #'
 #' @param PC Individual level principle components.
 #' @param eigen_value Computed eigen value for each PC. Used to calculate the percent variance explained by each PC.
