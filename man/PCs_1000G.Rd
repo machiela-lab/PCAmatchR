@@ -45,7 +45,7 @@ in the Phase 3 data release of the 1000 Genomes Project. The principal
 component analysis was conducted using PLINK.
 }
 \examples{
-\donttest{head(PCs_1000G)}
+head(PCs_1000G)
 \donttest{genome_PC <- PCs_1000G}
 \donttest{# Create PCs
            PC <- as.data.frame(genome_PC[,c(1,5:24)])
