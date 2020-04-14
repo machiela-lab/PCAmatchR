@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @examples
-#'\dontrun{plot_maker(data=match_maker_output,
+#'\donttest{plot_maker(data=match_maker_output,
 #'                      x_var="PC1",
 #'                      y_var="PC2",
 #'                      case_control="case",
