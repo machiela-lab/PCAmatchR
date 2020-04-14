@@ -16,16 +16,25 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{library(optmatch)}
-#' \dontrun{test<- match_maker(PC= pcs,
-#'                             eigen_value= eigen_vals,
-#'                             data=cov_data,
-#'                             ids=c("sample"),
-#'                             case_control=c("case"),
-#'                             num_controls=1,
-#'                             num_PCs= dim(cov_data)[1],
-#'                             exact_match= NULL,
-#'                             weight_dist=TRUE)}
+#' # Create PC data frame by subsetting provided example dataset
+#' pcs <- as.data.frame(PCs_1000G[,c(1,5:24)])
+#' # Create eigen values vector using example dataset
+#' eigen_vals <- c(eigenvalues_1000G)$eigen_values
+#' # Create Covarite data frame
+#' cov_data <- PCs_1000G[,c(1:4)]
+#' # Generate a case status variable using ESN 1000 Genome population
+#' cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
+#' # With 1 to 1 matching
+#'  if(!requireNamespace("optmatch", quietly = TRUE)){
+#'                         match_maker(PC = pcs,
+#'                                     eigen_value = eigen_vals,
+#'                                     data = cov_data,
+#'                                     ids = c("sample"),
+#'                                     case_control = c("case"),
+#'                                     num_controls = 1,
+#'                                     num_PCs = dim(cov_data)[1]
+#'                                    )
+#'                           }
 #'
 match_maker <- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_control=NULL, num_controls=1, num_PCs= 1000, exact_match=NULL, weight_dist=TRUE, weights=NULL){
 
@@ -33,7 +42,7 @@ match_maker <- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_con
   # Check for "optmatch" package #
   ################################
 
-  if (!"optmatch" %in% tolower((.packages()))) {
+if (!"optmatch" %in% tolower((.packages()))) {
     stop('The package optmatch (>= 0.9-1) not loaded.  To run the PCAmatchR match_maker()
           function, you must manually install and load the "optmatch" package first and
           agree to the terms of its license.  This is required due to software license
