@@ -3,7 +3,7 @@
 \docType{data}
 \name{eigenvalues_1000G}
 \alias{eigenvalues_1000G}
-\title{eigenvalues_1000G}
+\title{Eigenvalues of 2504 individuals from the 1000 Genome Project}
 \format{A data frame with 20 rows and 1 variable:
 \describe{
   \item{eigen_values}{calculated eigennvalues}
@@ -15,7 +15,10 @@
 eigenvalues_1000G
 }
 \description{
-A sample data set containing eivenvalues
+A sample dataset containing the first 20 eigenvalues
+calculated from 2504 individuals in the Phase 3 data
+release of the 1000 Genomes Project. The principal
+component analysis was conducted using PLINK.
 }
 \examples{
   eigenvalues_1000G

@@ -40,8 +40,9 @@ PCs_1000G
 }
 \description{
 A sample dataset containing information about population, gender, and
-20 principal components calculated from the 2504 individuals in Phase 3
-of the 1000 Genomes Project.
+the first 20 principal components calculated from 2504 individuals
+in the Phase 3 data release of the 1000 Genomes Project. The principal
+component analysis was conducted using PLINK.
 }
 \examples{
 \donttest{head(PCs_1000G)}
