@@ -24,7 +24,7 @@ plot_maker(
 \item{line}{draw line}
 }
 \value{
-A plot
+None
 }
 \description{
 Function to plot matches from match_maker output

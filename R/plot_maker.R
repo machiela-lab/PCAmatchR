@@ -6,7 +6,7 @@
 #' @param case_control Case or control status
 #' @param line draw line
 #'
-#' @return A plot
+#' @return None
 #' @importFrom graphics legend plot segments
 #' @export
 #'
