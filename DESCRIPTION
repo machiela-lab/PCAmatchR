@@ -1,6 +1,6 @@
 Package: PCAmatchR
 Title: Match Cases to Controls Based on Genotype Principal Components
-Version: 0.1.6
+Version: 0.1.6.9000
 Authors@R: 
     c(person(given = "Derek W.",
              family = "Brown",
