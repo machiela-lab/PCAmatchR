@@ -5,6 +5,7 @@
 #' @param y_var Principal component 2
 #' @param case_control Case or control status
 #' @param line draw line
+#' @param ... Arguments passed to \code{plot}
 #'
 #' @return None
 #' @importFrom graphics legend plot segments
@@ -17,7 +18,7 @@
 #'                      case_control="case",
 #'                      line=T)}
 #'
-plot_maker <- function(data=NULL, x_var=NULL, y_var=NULL, case_control=NULL, line=T)
+plot_maker <- function(data=NULL, x_var=NULL, y_var=NULL, case_control=NULL, line=T, ...)
 {
   # Check function input
   if(is.null(data))
@@ -37,7 +38,7 @@ plot_maker <- function(data=NULL, x_var=NULL, y_var=NULL, case_control=NULL, lin
     stop("Please specify the case indicator variable for plotting.")
   }
 
-  plot(data$PC_matches[,x_var], data$PC_matches[,y_var], pch=20, xlab=x_var, ylab=y_var, col=c("blue","red")[factor(data$PC_matches[,case_control])])
+  plot(data$PC_matches[,x_var], data$PC_matches[,y_var], pch=20, xlab=x_var, ylab=y_var, col=c("blue","red")[factor(data$PC_matches[,case_control])], ...)
   legend("bottomright", legend=(c("Controls","Cases")), pch=20, col=c("blue","red"), bty = "n")
 
   if(line==T)
