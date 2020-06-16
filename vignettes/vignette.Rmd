@@ -27,7 +27,7 @@ The development version of the *PCAmatchR* package can be installed from the Git
 ```{r eval=FALSE}
 devtools::install_github("machiela-lab/PCAmatchR")
 ```
-*PCAmatchR* depends on the *optmatch* package which must be manually installed and from CRAN:
+*PCAmatchR* depends on the *optmatch* package which must be manually installed from CRAN:
 ```{r eval=FALSE}
 install.packages("optmatch")
 ```
