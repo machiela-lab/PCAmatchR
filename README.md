@@ -1,5 +1,5 @@
 
-# PCAmatchR
+# PCAmatchR <img src="man/figures/hexsticker.png" width="120" align="right" />
 
 <!-- badges: start -->
 <!-- badges: end -->
