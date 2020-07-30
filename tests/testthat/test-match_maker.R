@@ -8,6 +8,9 @@ context("match_maker")
  # Create eigen values vector
  eigen_vals<- c(eigenvalues_1000G)$eigen_values
 
+ # Create full eigen values vector
+ all_eigen_vals<- c(eigenvalues_all_1000G)$eigen_values
+
  # Create Covarite data frame
  cov_data<- PCs_1000G[,c(1:4)]
 
@@ -21,7 +24,7 @@ context("match_maker")
                             ids = c("sample"),
                             case_control = c("case"),
                             num_controls = 1,
-                            num_PCs = dim(cov_data)[1])
+                            eigen_sum = sum(all_eigen_vals))
                 )
 
   }
@@ -36,7 +39,7 @@ test_that("PCamtachR throws error with invalid arguments", {
                          ids = c("sample"),
                          case_control = c("case"),
                          num_controls = 1,
-                         num_PCs = dim(cov_data)[1])
+                         eigen_sum = sum(all_eigen_vals))
                )
   expect_error(match_maker(PC = pcs,
                          eigen_value = NULL,
@@ -44,7 +47,7 @@ test_that("PCamtachR throws error with invalid arguments", {
                          ids = c("sample"),
                          case_control = c("case"),
                          num_controls = 1,
-                         num_PCs = dim(cov_data)[1])
+                         eigen_sum = sum(all_eigen_vals))
   )
   expect_error(match_maker(PC = pcs,
                          eigen_value = eigen_vals,
@@ -52,7 +55,7 @@ test_that("PCamtachR throws error with invalid arguments", {
                          ids = c("sample"),
                          case_control = c("case"),
                          num_controls = 1,
-                         num_PCs = dim(cov_data)[1])
+                         eigen_sum = sum(all_eigen_vals))
   )
   expect_error(match_maker(PC = pcs,
                          eigen_value = eigen_vals,
@@ -60,7 +63,7 @@ test_that("PCamtachR throws error with invalid arguments", {
                          ids = NULL,
                          case_control = c("case"),
                          num_controls = 1,
-                         num_PCs = dim(cov_data)[1])
+                         eigen_sum = sum(all_eigen_vals))
   )
   expect_error(match_maker(PC = pcs,
                          eigen_value = eigen_vals,
@@ -68,7 +71,7 @@ test_that("PCamtachR throws error with invalid arguments", {
                          ids = c("sample"),
                          case_control = NULL,
                          num_controls = 1,
-                         num_PCs = dim(cov_data)[1])
+                         eigen_sum = sum(all_eigen_vals))
   )
 
  }
@@ -81,7 +84,7 @@ test_that("match_maker works", {
                          ids = c("sample"),
                          case_control = c("case"),
                          num_controls = 1,
-                         num_PCs = dim(cov_data)[1])
+                         eigen_sum = sum(all_eigen_vals))
               )
 
  }
@@ -94,7 +97,7 @@ test_that("matches has correct dimensions", {
                     ids = c("sample"),
                     case_control = c("case"),
                     num_controls = 1,
-                    num_PCs = dim(cov_data)[1])
+                    eigen_sum = sum(all_eigen_vals))
   expect_equal(dim(test1$matches)[1], 198)
   expect_equal(dim(test1$matches)[2], 8)
  }
@@ -107,22 +110,11 @@ test_that("weights has correct dimension", {
                     ids = c("sample"),
                     case_control = c("case"),
                     num_controls = 1,
-                    num_PCs = dim(cov_data)[1])
+                    eigen_sum = sum(all_eigen_vals))
   expect_equal(dim(test1$weights)[2], 20)
 
  }
 )
 
-test_that("match_maker throws an error without optmatch loaded", {
-  expect_named(match_maker(PC = pcs,
-                           eigen_value = eigen_vals,
-                           data = cov_data,
-                           ids = c("sample"),
-                           case_control = c("case"),
-                           num_controls = 1,
-                           num_PCs = dim(cov_data)[1])
-  )
 
-}
-)
 

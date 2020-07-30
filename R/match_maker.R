@@ -58,6 +58,34 @@ if (!"optmatch" %in% tolower((.packages()))) {
   # Warnings Messages #
   #####################
 
+  # User defined PCs
+  if(is.null(PC)){
+    stop("Please specify the individual level principle components.")
+  }
+
+  # User defined eigen values
+  if(is.null(eigen_value)){
+    stop("Please specify the computed eigen value for each PC..")
+  }
+
+  # User defined dataframe
+  if(is.null(data)){
+    stop("Please specify the data frame which contains id and case/control status variables.")
+  }
+
+
+  # User defined IDs
+  if(is.null(ids)){
+    stop("Please specify the ID variable in the dataframe and PC data.")
+  }
+
+
+  # User defined Case control status
+  if(is.null(case_control)){
+    stop("Please specify the case/control status variable.")
+  }
+
+
   # Error if Eigen values and weights are both supplied
   if(length(eigen_value) > 0 & length(weights) >0 ){
     stop("Please specify either eigen values or weights.")
@@ -74,28 +102,6 @@ if (!"optmatch" %in% tolower((.packages()))) {
     if((dim(PC)[2]-1) != length(weights) ){
       stop("Number of PCs should equal number of supplied weights.")
     }
-  }
-
-
-  # User defined dataframe
-  if(is.null(data)){
-    stop("Please specify the data frame which contains id and case/control status variables.")
-  }
-
-
-  # User defined IDs
-  if(is.null(data[ids])){
-    stop("Please specify the ID variable in the dataframe.")
-  }
-
-  if(is.null(PC[ids])){
-    stop("Please specify the ID variable in the PC data.")
-  }
-
-
-  # User defined Case control status
-  if(is.null(data[case_control])){
-    stop("Please specify the case/control status variable.")
   }
 
 
