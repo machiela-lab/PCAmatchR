@@ -1,12 +1,13 @@
 #' Weighted matching of controls to cases using PCA results.
 #'
 #' @param PC Individual level principle components.
-#' @param eigen_value Computed eigen value for each PC. Used to calculate the percent variance explained by each PC.
+#' @param eigen_value Computed eigen value for each PC. Used as the numerator to calculate the percent variance explained by each PC.
 #' @param data Dataframe containing id and case/control status. Optionally includes covariate data for exact matching.
 #' @param ids The unique id variable contained in both "PC" and "data."
 #' @param case_control The case control status variable.
 #' @param num_controls The number of controls to match to each case. Default is 1:1 matching.
-#' @param num_PCs The total number of PCs calculated within the PCA. Default is 1000.
+#' @param num_PCs The total number of PCs calculated within the PCA. Can be used as the denomiator to calculate the percent variance explained by each PC. Default is 1000.
+#' @param eigen_sum The sum of all possible eigen values within the PCA. Can be used as the denomiator to calculate the percent variance explained by each PC.
 #' @param exact_match Optional variables contained in the dataframe on which to perform exact matching (i.e. sex, race, etc.).
 #' @param weight_dist When set to true, matches are produced based on PC weighted Mahalanobis distance. Default is TRUE.
 #' @param weights Optional user defined weights used to compute the weighted Mahalanobis distance metric.
@@ -20,6 +21,8 @@
 #' pcs <- as.data.frame(PCs_1000G[,c(1,5:24)])
 #' # Create eigen values vector using example dataset
 #' eigen_vals <- c(eigenvalues_1000G)$eigen_values
+#' # Create full eigen values vector using example dataset
+#' all_eigen_vals<- c(eigenvalues_all_1000G)$eigen_values
 #' # Create Covarite data frame
 #' cov_data <- PCs_1000G[,c(1:4)]
 #' # Generate a case status variable using ESN 1000 Genome population
@@ -32,11 +35,12 @@
 #'                                     ids = c("sample"),
 #'                                     case_control = c("case"),
 #'                                     num_controls = 1,
-#'                                     num_PCs = dim(cov_data)[1]
+#'                                     eigen_sum = sum(all_eigen_vals),
+#'                                     weight_dist=TRUE
 #'                                    )
 #'                           }
 #'
-match_maker <- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_control=NULL, num_controls=1, num_PCs= 1000, exact_match=NULL, weight_dist=TRUE, weights=NULL){
+match_maker <- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_control=NULL, num_controls=1, num_PCs= 1000, eigen_sum= NULL, exact_match=NULL, weight_dist=TRUE, weights=NULL){
 
   ################################
   # Check for "optmatch" package #
@@ -100,13 +104,26 @@ if (!"optmatch" %in% tolower((.packages()))) {
     warning("Weights computed assuming 1,000 total PCs. Number of PCs can be defined using the num_PCs variable.")
   }
 
+  if(num_PCs != 1000 & length(eigen_sum) > 0 & weight_dist== TRUE){
+    stop("Please specify only one denominator for calculated weights. Number of PCs can be defined using the num_PCs variable. Total sum of all eigen values can be defined using the eigen_sum variable.")
+  }
+
 
   # Percent Variance Explained sums to less than or equal to 1
-  if(length(eigen_value) > 0){
-    if(weight_dist== TRUE & sum(eigen_value) > num_PCs + 0.000001){
+  if(length(eigen_value) > 0 & length(eigen_sum)== 0){
+    if(weight_dist== TRUE & (sum(eigen_value) > (num_PCs + 0.000001))){
       stop("Ensure percent variance explained of PCs sums to less than or equal to 1.")
     }
   }
+
+
+  # Percent Variance Explained sums to less than or equal to 1
+  if(length(eigen_value) > 0 & length(eigen_sum)> 0){
+    if(weight_dist== TRUE & (sum(eigen_value) > (eigen_sum + 0.000001))){
+      stop("Ensure percent variance explained of PCs sums to less than or equal to 1.")
+    }
+  }
+
 
 
   ################
@@ -185,7 +202,12 @@ if (!"optmatch" %in% tolower((.packages()))) {
       weight_matrix <- matrix(0,dim(PC_data)[2],dim(PC_data)[2])
 
       if(length(eigen_value) >0){
-        diag(weight_matrix) <- eigen_value/num_PCs
+          if(length(eigen_sum) >0){
+            diag(weight_matrix) <- eigen_value/eigen_sum
+          }
+          else{
+            diag(weight_matrix) <- eigen_value/num_PCs
+          }
       } else {
         diag(weight_matrix) <- weights
       }
