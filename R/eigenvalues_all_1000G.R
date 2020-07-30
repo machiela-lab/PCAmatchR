@@ -11,8 +11,8 @@
 #' }
 #'
 #' @examples
-#'   eigenvalues_1000G
-#' \donttest{genome_values <- eigenvalues
+#'   eigenvalues_all_1000G
+#' \donttest{genome_values <- eigenvalues_all_1000G
 #'           values <- c(genome_values)$eigen_values
 #' }
 #'

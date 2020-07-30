@@ -21,8 +21,8 @@ release of the 1000 Genomes Project. The principal
 component analysis was conducted using PLINK.
 }
 \examples{
-  eigenvalues_1000G
-\donttest{genome_values <- eigenvalues
+  eigenvalues_all_1000G
+\donttest{genome_values <- eigenvalues_all_1000G
           values <- c(genome_values)$eigen_values
 }
 
