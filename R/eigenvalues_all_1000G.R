@@ -1,6 +1,6 @@
-#' Eigenvalues of 2504 individuals from the 1000 Genome Project
+#' All eigenvalues of 2504 individuals from the 1000 Genome Project
 #'
-#' A sample dataset containing the eigenvalues
+#' A sample dataset containing all the eigenvalues
 #' calculated from 2504 individuals in the Phase 3 data
 #' release of the 1000 Genomes Project. The principal
 #' component analysis was conducted using PLINK.
