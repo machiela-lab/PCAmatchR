@@ -27,5 +27,10 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+*_files/
+
 # Mac OSX
 .DS_Store
