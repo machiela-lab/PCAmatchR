@@ -9,7 +9,8 @@ plot_maker(
   x_var = NULL,
   y_var = NULL,
   case_control = NULL,
-  line = T
+  line = T,
+  ...
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ plot_maker(
 \item{case_control}{Case or control status}
 
 \item{line}{draw line}
+
+\item{...}{Arguments passed to \code{plot}}
 }
 \value{
 None
