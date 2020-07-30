@@ -106,7 +106,7 @@ if (!"optmatch" %in% tolower((.packages()))) {
 
 
   # Number of variants used to calculate weights
-  if(num_PCs== 1000 & weight_dist== TRUE){
+  if(num_PCs== 1000 & length(eigen_sum) == 0 & weight_dist== TRUE){
     warning("Weights computed assuming 1,000 total PCs. Number of PCs can be defined using the num_PCs variable.")
   }
 
