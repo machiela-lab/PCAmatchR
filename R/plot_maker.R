@@ -29,7 +29,7 @@ plot_maker <- function(data=NULL, x_var=NULL, y_var=NULL, case_control=NULL, lin
   {
     stop("Please specify the X variable for plotting.")
   }
-  if(is.null(x_var))
+  if(is.null(y_var))
   {
     stop("Please specify the Y variable for plotting.")
   }
