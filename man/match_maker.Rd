@@ -11,16 +11,17 @@ match_maker(
   ids = NULL,
   case_control = NULL,
   num_controls = 1,
-  num_PCs = 1000,
+  num_PCs = NULL,
+  eigen_sum = NULL,
   exact_match = NULL,
   weight_dist = TRUE,
   weights = NULL
 )
 }
 \arguments{
-\item{PC}{Individual level principle components.}
+\item{PC}{Individual level principal component.}
 
-\item{eigen_value}{Computed eigen value for each PC. Used to calculate the percent variance explained by each PC.}
+\item{eigen_value}{Computed eigenvalue for each PC. Used as the numerator to calculate the percent variance explained by each PC.}
 
 \item{data}{Dataframe containing id and case/control status. Optionally includes covariate data for exact matching.}
 
@@ -30,7 +31,9 @@ match_maker(
 
 \item{num_controls}{The number of controls to match to each case. Default is 1:1 matching.}
 
-\item{num_PCs}{The total number of PCs calculated within the PCA. Default is 1000.}
+\item{num_PCs}{The total number of PCs calculated within the PCA. Can be used as the denomiator to calculate the percent variance explained by each PC. Default is 1000.}
+
+\item{eigen_sum}{The sum of all possible eigenvalues within the PCA. Can be used as the denomiator to calculate the percent variance explained by each PC.}
 
 \item{exact_match}{Optional variables contained in the dataframe on which to perform exact matching (i.e. sex, race, etc.).}
 
@@ -47,8 +50,10 @@ Weighted matching of controls to cases using PCA results.
 \examples{
 # Create PC data frame by subsetting provided example dataset
 pcs <- as.data.frame(PCs_1000G[,c(1,5:24)])
-# Create eigen values vector using example dataset
+# Create eigenvalues vector using example dataset
 eigen_vals <- c(eigenvalues_1000G)$eigen_values
+# Create full eigenvalues vector using example dataset
+all_eigen_vals<- c(eigenvalues_all_1000G)$eigen_values
 # Create Covarite data frame
 cov_data <- PCs_1000G[,c(1:4)]
 # Generate a case status variable using ESN 1000 Genome population
@@ -61,7 +66,8 @@ cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
                                     ids = c("sample"),
                                     case_control = c("case"),
                                     num_controls = 1,
-                                    num_PCs = dim(cov_data)[1]
+                                    eigen_sum = sum(all_eigen_vals),
+                                    weight_dist=TRUE
                                    )
                           }
 

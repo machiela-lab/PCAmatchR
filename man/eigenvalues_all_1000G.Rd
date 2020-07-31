@@ -3,10 +3,10 @@
 \docType{data}
 \name{eigenvalues_all_1000G}
 \alias{eigenvalues_all_1000G}
-\title{Eigenvalues of 2504 individuals from the 1000 Genome Project}
+\title{All eigenvalues of 2504 individuals from the 1000 Genome Project}
 \format{A data frame with 2504 rows and 1 variable:
 \describe{
-  \item{eigen_values}{calculated eigennvalues}
+  \item{eigen_values}{calculated eigenvalues}
 }}
 \source{
 {Machiela Lab}
@@ -15,7 +15,7 @@
 eigenvalues_all_1000G
 }
 \description{
-A sample dataset containing the eigenvalues
+A sample dataset containing all the eigenvalues
 calculated from 2504 individuals in the Phase 3 data
 release of the 1000 Genomes Project. The principal
 component analysis was conducted using PLINK.

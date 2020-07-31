@@ -3,7 +3,7 @@
 \docType{data}
 \name{PCs_1000G}
 \alias{PCs_1000G}
-\title{Principal components of 2504 individuals from the 1000 Genome Project}
+\title{First 20 principal components of 2504 individuals from the 1000 Genome Project}
 \format{A data frame with 2504 rows and 24 variables:
 \describe{
   \item{sample}{sample ID number}
