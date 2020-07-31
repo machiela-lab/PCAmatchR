@@ -7,7 +7,7 @@
 #'
 #' @format A data frame with 20 rows and 1 variable:
 #' \describe{
-#'   \item{eigen_values}{calculated eigennvalues}
+#'   \item{eigen_values}{calculated eigenvalues}
 #' }
 #'
 #' @examples
