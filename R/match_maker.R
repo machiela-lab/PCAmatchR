@@ -60,7 +60,7 @@ if (!"optmatch" %in% tolower((.packages()))) {
 
   # User defined PCs
   if(is.null(PC)){
-    stop("Please specify the individual level principal component.")
+    stop("Please specify the individual level principal components.")
   }
 
   # User defined eigenvalues
