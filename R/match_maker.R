@@ -64,8 +64,8 @@ if (!"optmatch" %in% tolower((.packages()))) {
   }
 
   # User defined eigenvalues
-  if(is.null(eigen_value)){
-    stop("Please specify the computed eigenvalue for each PC.")
+  if(is.null(eigen_value) & is.null(weights)){
+    stop("Please specify the computed eigenvalue or weights for each PC.")
   }
 
   # User defined dataframe
