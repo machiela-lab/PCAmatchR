@@ -40,7 +40,7 @@
 #'                                    )
 #'                           }
 #'
-match_maker <- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_control=NULL, num_controls=1, num_PCs= 1000, eigen_sum= NULL, exact_match=NULL, weight_dist=TRUE, weights=NULL){
+match_maker <- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_control=NULL, num_controls=1, num_PCs= NULL, eigen_sum= NULL, exact_match=NULL, weight_dist=TRUE, weights=NULL){
 
   ################################
   # Check for "optmatch" package #
@@ -106,11 +106,11 @@ if (!"optmatch" %in% tolower((.packages()))) {
 
 
   # Number of variants used to calculate weights
-  if(num_PCs== 1000 & length(eigen_sum) == 0 & weight_dist== TRUE){
-    warning("Weights computed assuming 1,000 total PCs. Number of PCs can be defined using the num_PCs variable.")
+  if(length(num_PCs) == 0 & length(eigen_sum) == 0 & weight_dist== TRUE){
+    stop("Please specify a denominator for calculated weights. Number of PCs can be defined using the num_PCs variable. Total sum of all eigenvalues can be defined using the eigen_sum variable.")
   }
 
-  if(num_PCs != 1000 & length(eigen_sum) > 0 & weight_dist== TRUE){
+  if(length(num_PCs) > 0 & length(eigen_sum) > 0 & weight_dist== TRUE){
     stop("Please specify only one denominator for calculated weights. Number of PCs can be defined using the num_PCs variable. Total sum of all eigenvalues can be defined using the eigen_sum variable.")
   }
 
