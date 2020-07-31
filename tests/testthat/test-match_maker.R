@@ -5,10 +5,10 @@ context("match_maker")
  # Create PC data frame
  pcs<- as.data.frame(PCs_1000G[,c(1,5:24)])
 
- # Create eigen values vector
+ # Create eigenvalues vector
  eigen_vals<- c(eigenvalues_1000G)$eigen_values
 
- # Create full eigen values vector
+ # Create full eigenvalues vector
  all_eigen_vals<- c(eigenvalues_all_1000G)$eigen_values
 
  # Create Covarite data frame

@@ -1,13 +1,13 @@
 #' Weighted matching of controls to cases using PCA results.
 #'
 #' @param PC Individual level principal component.
-#' @param eigen_value Computed eigen value for each PC. Used as the numerator to calculate the percent variance explained by each PC.
+#' @param eigen_value Computed eigenvalue for each PC. Used as the numerator to calculate the percent variance explained by each PC.
 #' @param data Dataframe containing id and case/control status. Optionally includes covariate data for exact matching.
 #' @param ids The unique id variable contained in both "PC" and "data."
 #' @param case_control The case control status variable.
 #' @param num_controls The number of controls to match to each case. Default is 1:1 matching.
 #' @param num_PCs The total number of PCs calculated within the PCA. Can be used as the denomiator to calculate the percent variance explained by each PC. Default is 1000.
-#' @param eigen_sum The sum of all possible eigen values within the PCA. Can be used as the denomiator to calculate the percent variance explained by each PC.
+#' @param eigen_sum The sum of all possible eigenvalues within the PCA. Can be used as the denomiator to calculate the percent variance explained by each PC.
 #' @param exact_match Optional variables contained in the dataframe on which to perform exact matching (i.e. sex, race, etc.).
 #' @param weight_dist When set to true, matches are produced based on PC weighted Mahalanobis distance. Default is TRUE.
 #' @param weights Optional user defined weights used to compute the weighted Mahalanobis distance metric.
@@ -19,9 +19,9 @@
 #' @examples
 #' # Create PC data frame by subsetting provided example dataset
 #' pcs <- as.data.frame(PCs_1000G[,c(1,5:24)])
-#' # Create eigen values vector using example dataset
+#' # Create eigenvalues vector using example dataset
 #' eigen_vals <- c(eigenvalues_1000G)$eigen_values
-#' # Create full eigen values vector using example dataset
+#' # Create full eigenvalues vector using example dataset
 #' all_eigen_vals<- c(eigenvalues_all_1000G)$eigen_values
 #' # Create Covarite data frame
 #' cov_data <- PCs_1000G[,c(1:4)]
@@ -63,9 +63,9 @@ if (!"optmatch" %in% tolower((.packages()))) {
     stop("Please specify the individual level principal component.")
   }
 
-  # User defined eigen values
+  # User defined eigenvalues
   if(is.null(eigen_value)){
-    stop("Please specify the computed eigen value for each PC.")
+    stop("Please specify the computed eigenvalue for each PC.")
   }
 
   # User defined dataframe
@@ -86,16 +86,16 @@ if (!"optmatch" %in% tolower((.packages()))) {
   }
 
 
-  # Error if Eigen values and weights are both supplied
+  # Error if Eigenvalues and weights are both supplied
   if(length(eigen_value) > 0 & length(weights) >0 ){
-    stop("Please specify either eigen values or weights.")
+    stop("Please specify either eigenvalues or weights.")
   }
 
 
-  # Check Number of PCs equals number of eigen values/weights
+  # Check Number of PCs equals number of eigenvalues/weights
   if(length(eigen_value) > 0){
     if((dim(PC)[2]-1) != length(eigen_value) ){
-      stop("Number of PCs should equal number of eigen values.")
+      stop("Number of PCs should equal number of eigenvalues.")
     }
 
   } else if (length(weights) > 0){
@@ -111,7 +111,7 @@ if (!"optmatch" %in% tolower((.packages()))) {
   }
 
   if(num_PCs != 1000 & length(eigen_sum) > 0 & weight_dist== TRUE){
-    stop("Please specify only one denominator for calculated weights. Number of PCs can be defined using the num_PCs variable. Total sum of all eigen values can be defined using the eigen_sum variable.")
+    stop("Please specify only one denominator for calculated weights. Number of PCs can be defined using the num_PCs variable. Total sum of all eigenvalues can be defined using the eigen_sum variable.")
   }
 
 

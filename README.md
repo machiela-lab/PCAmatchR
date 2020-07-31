@@ -88,11 +88,11 @@ Available sample data sets
 </tr>
 <tr class="odd">
 <td><code>eigenvalues_1000G</code></td>
-<td>A sample data set containing first 20 eigenvalues.</td>
+<td>A sample data set containing the first 20 eigenvalues.</td>
 </tr>
 <tr class="odd">
 <td><code>eigenvalues_all_1000G</code></td>
-<td>A sample data set containing all eigenvalues.</td>
+<td>A sample data set containing all of the eigenvalues.</td>
 </tr>
 </tbody>
 <table>
@@ -107,10 +107,10 @@ library(optmatch)
  # Create PC data frame
  pcs<- as.data.frame(PCs_1000G[,c(1,5:24)])
 
- # Create eigen values vector
+ # Create eigenvalues vector
  eigen_vals<- c(eigenvalues_1000G)$eigen_values
  
- # Create full eigen values vector
+ # Create full eigenvalues vector
  all_eigen_vals<- c(eigenvalues_all_1000G)$eigen_values
 
  # Create Covarite data frame
