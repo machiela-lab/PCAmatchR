@@ -84,11 +84,15 @@ Available sample data sets
 <tbody>
 <tr class="odd">
 <td><code>PCs_1000G</code></td>
-<td>Principal components of 2504 individuals from Phase 3 of 1000 Genomes Project.</td>
+<td>First 20 principal components of 2504 individuals from Phase 3 of 1000 Genomes Project.</td>
 </tr>
 <tr class="odd">
 <td><code>eigenvalues_1000G</code></td>
-<td>A sample data set containing eigenvalues.</td>
+<td>A sample data set containing first 20 eigenvalues.</td>
+</tr>
+<tr class="odd">
+<td><code>eigenvalues_all_1000G</code></td>
+<td>A sample data set containing all eigenvalues.</td>
 </tr>
 </tbody>
 <table>
@@ -105,6 +109,9 @@ library(optmatch)
 
  # Create eigen values vector
  eigen_vals<- c(eigenvalues_1000G)$eigen_values
+ 
+ # Create full eigen values vector
+ all_eigen_vals<- c(eigenvalues_all_1000G)$eigen_values
 
  # Create Covarite data frame
  cov_data<- PCs_1000G[,c(1:4)]
@@ -124,7 +131,7 @@ test <- match_maker(PC = pcs,
                     ids = c("sample"),
                     case_control = c("case"),
                     num_controls = 1,
-                    num_PCs = dim(cov_data)[1])
+                    eigen_sum = sum(all_eigen_vals))
 test$matches
 test$weights
 
@@ -136,7 +143,7 @@ test <- match_maker(PC = pcs,
                     ids = c("sample"),
                     case_control = c("case"),
                     num_controls = 2,
-                    num_PCs = dim(cov_data)[1])
+                    eigen_sum = sum(all_eigen_vals))
 test$matches
 test$weights
 
@@ -148,7 +155,7 @@ test <- match_maker(PC = pcs,
                     ids = c("sample"),
                     case_control = c("case"),
                     num_controls = 1,
-                    num_PCs = dim(cov_data)[1],
+                    eigen_sum = sum(all_eigen_vals),
                     exact_match=c("gender"))
 test$matches
 test$weights

@@ -1,6 +1,6 @@
 #' Weighted matching of controls to cases using PCA results.
 #'
-#' @param PC Individual level principle components.
+#' @param PC Individual level principal component.
 #' @param eigen_value Computed eigen value for each PC. Used as the numerator to calculate the percent variance explained by each PC.
 #' @param data Dataframe containing id and case/control status. Optionally includes covariate data for exact matching.
 #' @param ids The unique id variable contained in both "PC" and "data."
@@ -60,7 +60,7 @@ if (!"optmatch" %in% tolower((.packages()))) {
 
   # User defined PCs
   if(is.null(PC)){
-    stop("Please specify the individual level principle components.")
+    stop("Please specify the individual level principal component.")
   }
 
   # User defined eigen values

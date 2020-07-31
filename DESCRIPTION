@@ -16,7 +16,7 @@ Authors@R:
       person(given = "NCI",
              role = c("cph", "fnd")))
 Maintainer: Derek W. Brown <derek.brown@nih.gov>
-Description: Matches cases to controls based on genotype principle components (PC). 
+Description: Matches cases to controls based on genotype principal components (PC). 
       In order to produce better results, matches are based on the weighted 
       distance of PCs where the weights are equal to the % variance explained 
       by that PC. A weighted Mahalanobis distance metric (Kidd et al. (1987)

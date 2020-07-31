@@ -1,7 +1,7 @@
 ---
 title: "PCAmatchR: Match Cases to Controls Based on Genotype Principal Components"
 author: "Derek W. Brown, Timothy A. Myers, and Mitchell J. Machiela"
-date: "6/16/2020"
+date: "7/30/2020"
 output: rmarkdown::html_document
 vignette: >
   %\VignetteIndexEntry{PCAmatchR: Match Cases to Controls Based on Genotype Principal Components}
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.width = 7, fig.height = 7, fig.show = "ho
 
 ## Description
 
-*PCAmatchR* matches cases to controls based on genotype principle components (PC). In order to produce more genetically similar matches, a weighted Mahalanobis distance metric (Kidd et al. (1987) <DOI:10.1016/0031-3203(87)90066-5>) is used to determine matches. Weights are equal to the percent variance explained by each PC.
+*PCAmatchR* matches cases to controls based on genotype principal components (PC). In order to produce more genetically similar matches, a weighted Mahalanobis distance metric (Kidd et al. (1987) <DOI:10.1016/0031-3203(87)90066-5>) is used to determine matches. Weights are equal to the percent variance explained by each PC.
 
 ## Installation
 The release version of *PCAmatchR* can be installed from CRAN:
@@ -48,6 +48,8 @@ Within *PCAmatchR*, we include sample data containing information about populati
 
 - `eigenvalues_1000G`, A sample dataset containing the first 20 eigenvalues calculated from 2,504 individuals in the Phase 3 data release of the 1000 Genomes Project.
 
+- `eigenvalues_all_1000G`, A sample dataset containing all eigenvalues calculated from 2,504 individuals in the Phase 3 data release of the 1000 Genomes Project.
+
 ```{r eval=TRUE, warning=FALSE, message=FALSE, cache=TRUE}
 # Load required packages
 loadedPackages <- c("PCAmatchR", "optmatch")
@@ -58,6 +60,9 @@ pcs<- as.data.frame(PCs_1000G[,c(1,5:24)])
 
 # Create eigen values vector
 eigen_vals<- c(eigenvalues_1000G)$eigen_values
+
+# Create full eigen values vector
+all_eigen_vals<- c(eigenvalues_all_1000G)$eigen_values
 ```
 
 ### Case and Control Populations
@@ -68,7 +73,7 @@ covariate_data$case <- ifelse(covariate_data$pop=="ESN", c(1), c(0))
 ```
 
 ### Case-Control Matching
-Matching is performed using `match_maker`. Within this example, Cases and controls are 1:2 matched on the first 20 PCs: 
+Matching is performed using `match_maker`. Within this example, cases and controls are 1:2 matched on the first 20 PCs: 
 ```{r eval=TRUE}
 match_maker_output<- match_maker(PC = pcs,
                                  eigen_value = eigen_vals,
@@ -76,9 +81,9 @@ match_maker_output<- match_maker(PC = pcs,
                                  ids = c("sample"),
                                  case_control="case",
                                  num_controls = 2,
-                                 num_PCs = dim(covariate_data)[1])
+                                 eigen_sum = sum(all_eigen_vals))
 ```
-Derived matches are contained with the `matches` object. The weighted Mahalanobis distance metric between case and control pairs is detailed within the `match_distance` variable:
+Derived matches are contained within the `matches` object. The weighted Mahalanobis distance metric between case and control pairs is detailed within the `match_distance` variable:
 ```{r eval=FALSE}
 PCA_matches<- match_maker_output$matches
 PCA_matches$match_distance
