@@ -22,7 +22,7 @@ component analysis was conducted using PLINK.
 }
 \examples{
   eigenvalues_1000G
-\donttest{genome_values <- eigenvalues
+\donttest{genome_values <- eigen_values
           values <- c(genome_values)$eigen_values
 }
 
