@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE, fig.width = 7, fig.height = 7, fig.show = "ho
 
 ## Description
 
-*PCAmatchR* matches cases to controls based on genotype principal components (PC). In order to produce more genetically similar matches, a weighted Mahalanobis distance metric (Kidd et al. (1987) <DOI:10.1016/0031-3203(87)90066-5>) is used to determine matches. Weights are equal to the percent variance explained by each PC.
+*PCAmatchR* matches cases to controls based on genotype principal components (PC). In order to produce more genetically similar matches, a weighted Mahalanobis distance metric ([Kidd et al. (1987)](https://www.sciencedirect.com/science/article/abs/pii/0031320387900665)) is used to determine matches. Weights are equal to the percent variance explained by each PC.
 
 ## Installation
 The release version of *PCAmatchR* can be installed from CRAN:
@@ -42,7 +42,7 @@ library(optmatch)
 Here we perform a hypothetical example of case-control matching using the Phase 3 data release of 1000 Genomes Project, which contains genotype data from 2,504 individuals from 26 distinct populations (available at https://www.cog-genomics.org/plink/2.0/resources). 
 
 ### Available Data
-Within *PCAmatchR*, we include sample data containing information about population, gender, and the first 20 principal components and eigenvalues calculated from 2,504 individuals in the Phase 3 data release of the 1000 Genomes Project. The example principal component analysis was conducted with PLINK using a set of ancestry informative SNPs (Yu et al. (2008) <DOI:10.1371/journal.pone.0002551>). The data files are contained within: 
+Within *PCAmatchR*, we include sample data containing information about population, gender, and the first 20 principal components and eigenvalues calculated from 2,504 individuals in the Phase 3 data release of the 1000 Genomes Project. The example principal component analysis was conducted with PLINK using a set of ancestry informative SNPs ([Yu et al. (2008)](https://pubmed.ncbi.nlm.nih.gov/18596976/)). The data files are contained within: 
 
 - `PCs_1000G`, A sample dataset containing information about population, gender, and the first 20 principal components calculated from 2,504 individuals in the Phase 3 data release of the 1000 Genomes Project.
 
