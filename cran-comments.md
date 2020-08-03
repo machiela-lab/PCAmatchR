@@ -1,4 +1,6 @@
-## This is the second release
+## This a re-submission of second release
+* Action taken regarding invalid URL  in vignette
+  * Included fully specified URLs in vignette
 
 ## Test environments
 * local OS X install, R 3.6.2
@@ -9,7 +11,7 @@
   * Fedora Linux, R-devel, clang, gfortran
   
 ## R CMD check results
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warningss | 0 notes
 
 ## Reverse Dependency Check
 None found
