@@ -150,7 +150,7 @@ if (!"optmatch" %in% tolower((.packages()))) {
 
   PC_combine<- merge(PC, PC_combine1[c(ids, case_control, "exact_class")], by=ids)
   rownames(PC_combine)<- PC_combine[[ids]]
-  PC_combine<- PC_combine[order(-PC_combine[case_control]),]
+  PC_combine<- PC_combine[(sort(-(unlist(PC_combine[case_control] , use.names = FALSE)), index.retur=TRUE)$ix),]
 
 
   # Create Loop for exact matching
@@ -240,7 +240,7 @@ if (!"optmatch" %in% tolower((.packages()))) {
     matched<- as.data.frame(cbind(PC_subset, match))
 
     # Order the data by case status and match
-    matched_ordered<- matched[order(matched$match, -matched[case_control]),]
+    matched_ordered<- matched[with(matched, order(match, -(eval(as.name(case_control))))), ]
 
     # Remove records with no match
     matched_ordered2<- matched_ordered[which(!is.na(matched_ordered$match)),]
@@ -272,14 +272,14 @@ if (!"optmatch" %in% tolower((.packages()))) {
   matches_final$match_final<- cumsum(!duplicated( matches_final[ncol(matches_final)]))
 
   merged_matches<- merge(data,  matches_final[c(ids, "exact_class", "match_final", "match_distance")], by=ids)
-  merged_matches<- merged_matches[order(merged_matches$match_final, -merged_matches[case_control]),]
+  merged_matches<- merged_matches[with(merged_matches, order(match_final, -(eval(as.name(case_control))))), ]
   rownames(merged_matches)<- 1:nrow(merged_matches)
   colnames(merged_matches)[colnames(merged_matches) == "exact_class"] <- "match_strata"
 
 
   # Merge matches with PC data
   merged_PC<- merge(merged_matches, PC, by=ids)
-  merged_PC<- merged_PC[order(merged_PC$match_final, -merged_PC[case_control]),]
+  merged_PC<- merged_PC[with(merged_PC, order(match_final, -(eval(as.name(case_control))))), ]
   rownames(merged_PC)<- 1:nrow(merged_PC)
 
   returnlist<- (list(matches= merged_matches, weights= weight_output, PC_matches= merged_PC, NULL=NULL))
