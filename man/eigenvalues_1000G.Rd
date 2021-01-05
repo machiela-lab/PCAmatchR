@@ -4,10 +4,12 @@
 \name{eigenvalues_1000G}
 \alias{eigenvalues_1000G}
 \title{First 20 eigenvalues of 2504 individuals from the 1000 Genome Project}
-\format{A data frame with 20 rows and 1 variable:
+\format{
+A data frame with 20 rows and 1 variable:
 \describe{
   \item{eigen_values}{calculated eigenvalues}
-}}
+}
+}
 \source{
 {Machiela Lab}
 }

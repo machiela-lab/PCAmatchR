@@ -33,10 +33,36 @@ None
 Function to plot matches from match_maker output
 }
 \examples{
-\donttest{plot_maker(data=match_maker_output,
+\donttest{
+# run match_maker()
+# Create PC data frame by subsetting provided example dataset
+pcs <- as.data.frame(PCs_1000G[,c(1,5:24)])
+# Create eigenvalues vector using example dataset
+eigen_vals <- c(eigenvalues_1000G)$eigen_values
+# Create full eigenvalues vector using example dataset
+all_eigen_vals<- c(eigenvalues_all_1000G)$eigen_values
+# Create Covarite data frame
+cov_data <- PCs_1000G[,c(1:4)]
+# Generate a case status variable using ESN 1000 Genome population
+cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
+# With 1 to 1 matching
+library(optmatch)
+match_maker_output<- match_maker(PC = pcs,
+                                 eigen_value = eigen_vals,
+                                 data = cov_data,
+                                 ids = c("sample"),
+                                 case_control = c("case"),
+                                 num_controls = 1,
+                                 eigen_sum = sum(all_eigen_vals),
+                                 weight_dist=TRUE
+                                )
+
+# run plot_maker()
+plot_maker(data=match_maker_output,
                      x_var="PC1",
                      y_var="PC2",
                      case_control="case",
-                     line=T)}
+                     line=TRUE)
+}
 
 }

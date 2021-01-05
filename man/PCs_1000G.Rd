@@ -4,7 +4,8 @@
 \name{PCs_1000G}
 \alias{PCs_1000G}
 \title{First 20 principal components of 2504 individuals from the 1000 Genome Project}
-\format{A data frame with 2504 rows and 24 variables:
+\format{
+A data frame with 2504 rows and 24 variables:
 \describe{
   \item{sample}{sample ID number}
   \item{pop}{three letter designation of 1000 Genomes reference population}
@@ -31,7 +32,8 @@
   \item{PC19}{principal component 19}
   \item{PC20}{principal component 20}
 
-}}
+}
+}
 \source{
 \url{https://www.internationalgenome.org}
 }
