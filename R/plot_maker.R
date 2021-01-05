@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#'\donttest{
+#' \donttest{
 #' # run match_maker()
 #' # Create PC data frame by subsetting provided example dataset
 #' pcs <- as.data.frame(PCs_1000G[,c(1,5:24)])
@@ -41,7 +41,7 @@
 #'                      x_var="PC1",
 #'                      y_var="PC2",
 #'                      case_control="case",
-#'                      line=T)
+#'                      line=TRUE)
 #' }
 #'
 plot_maker <- function(data=NULL, x_var=NULL, y_var=NULL, case_control=NULL, line=T, ...)
