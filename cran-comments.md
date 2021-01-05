@@ -1,17 +1,18 @@
-## This a re-submission of second release
-* Action taken regarding invalid URL  in vignette
-  * Included fully specified URLs in vignette
+## This is the third release
+* Makes requested changes to package code to no longer call order() on data frames.
+  * Update @examples in `plot_maker()`
+* Add `NEWS.md` file to track changes between versions.
 
 ## Test environments
-* local OS X install, R 3.6.2
+* local OS X install, R 4.0.3
 * win-builder, (devel, oldrelease, release)
 * Rhub
   * Windows Server 2008 R2 SP1, R-devel, 32/64 bit
-  * Ubuntu Linux 16.04 LTS, R-release, GCC
-  * Fedora Linux, R-devel, clang, gfortran
+  * Oracle Solaris 10, x86, 32 bit, R-release
+  * Oracle Solaris 10, x86, 32 bit, R-release, Oracle Developer Studio 
   
 ## R CMD check results
-0 errors | 0 warningss | 0 notes
+0 errors | 0 warnings | 0 notes
 
 ## Reverse Dependency Check
 None found
