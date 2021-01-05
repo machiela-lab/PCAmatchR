@@ -10,6 +10,7 @@
   * Windows Server 2008 R2 SP1, R-devel, 32/64 bit
   * Oracle Solaris 10, x86, 32 bit, R-release
   * Oracle Solaris 10, x86, 32 bit, R-release, Oracle Developer Studio 
+  * Ubuntu Linux 16.04 LTS, R-release, GCC
   
 ## R CMD check results
 0 errors | 0 warnings | 0 notes
