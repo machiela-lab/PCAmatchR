@@ -7,6 +7,7 @@
 version](https://www.r-pkg.org/badges/version-ago/PCAmatchR)](https://cran.r-project.org/package=PCAmatchR)
 [![CRAN RStudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/PCAmatchR?color=blue)](https://r-pkg.org/pkg/PCAmatchR)
+![license](https://img.shields.io/badge/license-MIT-yellow)
 
 <!-- badges: end -->
 
