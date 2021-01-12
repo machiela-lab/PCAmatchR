@@ -2,6 +2,12 @@
 # PCAmatchR <img src="man/figures/hexsticker.png" width="140" align="right" />
 
 <!-- badges: start -->
+
+[![CRAN
+version](https://www.r-pkg.org/badges/version-ago/PCAmatchR)](https://cran.r-project.org/package=PCAmatchR)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/PCAmatchR?color=blue)](https://r-pkg.org/pkg/PCAmatchR)
+
 <!-- badges: end -->
 
 <h2 id="overview">
