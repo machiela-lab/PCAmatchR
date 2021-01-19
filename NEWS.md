@@ -1,4 +1,8 @@
+# PCAmatchR (development verion)
+* Release date: TBD
+
 # PCAmatchR 0.3.0
+* Release date: 2021-01-10
 * Makes requested changes to package code to no longer call `order()` on data frames.
 * Update @examples in `plot_maker()`
 * Added a `NEWS.md` file to track changes to the package.
