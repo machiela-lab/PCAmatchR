@@ -1,0 +1,22 @@
+citHeader("To cite PCAmatchR in publications use:")
+
+citEntry(
+  entry     = "Article",
+  title     = "PCAmatchR: a flexible R package for optimal case–control matching using weighted principal components",
+  author    = personList(as.person("D. W. Brown"),
+                        as.person("T. A. Myers"),
+                        as.person("M. J. Machiela")),
+  journal   = "Bioinformatics",
+  year      = "2020",
+  volume    = "37",
+  number    = "8",
+  pages     = "1178--1181",
+  doi       = "10.1093/bioinformatics/btaa784",
+  url       = "https://doi.org/10.1093/bioinformatics/btaa784",
+  publisher = "OXFORD ACADEMIC",
+  textVersion = paste("D. W. Brown, T. A. Myers, M. J. Machiela (2020).",
+        "PCAmatchR: a flexible R package for optimal case–control matching using weighted principal components.",
+        "Bioinformatics 37(8), 1178-1181.",
+        "DOI 10.1093/bioinformatics/btaa784.")
+
+)

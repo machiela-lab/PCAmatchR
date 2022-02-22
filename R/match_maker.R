@@ -28,7 +28,8 @@
 #' # Generate a case status variable using ESN 1000 Genome population
 #' cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
 #' # With 1 to 1 matching
-#'  if(!requireNamespace("optmatch", quietly = TRUE)){
+#' if(requireNamespace("optmatch", quietly = TRUE)){
+#'                         library(optmatch)
 #'                         match_maker(PC = pcs,
 #'                                     eigen_value = eigen_vals,
 #'                                     data = cov_data,
@@ -38,7 +39,7 @@
 #'                                     eigen_sum = sum(all_eigen_vals),
 #'                                     weight_dist=TRUE
 #'                                    )
-#'                           }
+#'                         }
 #'
 match_maker <- function(PC=NULL, eigen_value=NULL, data=NULL, ids=NULL, case_control=NULL, num_controls=1, num_PCs= NULL, eigen_sum= NULL, exact_match=NULL, weight_dist=TRUE, weights=NULL){
 

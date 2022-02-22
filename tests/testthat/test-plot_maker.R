@@ -17,6 +17,10 @@ context("plot_maker")
  # Generate a case status variable
  cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
 
+ if(requireNamespace("optmatch", quietly = TRUE)){
+
+ library(optmatch)
+
  # Generate match_maker_output
  match_maker_output<- match_maker(PC = pcs,
                                   eigen_value = eigen_vals,
@@ -68,3 +72,4 @@ test_that("plot_maker works", {
  }
 )
 
+}
