@@ -15,7 +15,7 @@
 *.Rproj
 
 # produced vignettes
-vignettes/*.html
+#vignettes/*.html
 vignettes/*.pdf
 
 # knitr and R markdown default cache directories
