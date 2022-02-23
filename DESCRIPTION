@@ -19,7 +19,6 @@ Authors@R:
              comment = c(ORCID = "0000-0001-8127-3446")),
       person(given = "NCI",
              role = c("cph", "fnd")))
-Maintainer: Derek W. Brown <derek.brown@nih.gov>
 Description: Matches cases to controls based on genotype principal components (PC). 
       In order to produce better results, matches are based on the weighted 
       distance of PCs where the weights are equal to the % variance explained 
