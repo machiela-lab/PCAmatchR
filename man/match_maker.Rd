@@ -59,7 +59,8 @@ cov_data <- PCs_1000G[,c(1:4)]
 # Generate a case status variable using ESN 1000 Genome population
 cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
 # With 1 to 1 matching
- if(!requireNamespace("optmatch", quietly = TRUE)){
+if(requireNamespace("optmatch", quietly = TRUE)){
+                        library(optmatch)
                         match_maker(PC = pcs,
                                     eigen_value = eigen_vals,
                                     data = cov_data,
@@ -69,6 +70,6 @@ cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
                                     eigen_sum = sum(all_eigen_vals),
                                     weight_dist=TRUE
                                    )
-                          }
+                        }
 
 }

@@ -1,2 +1,4 @@
 YEAR: 2020
 COPYRIGHT HOLDER: NCI
+
+The PCAmatchR package relies upon the optmatch package which is licensed under an Academic License. See the optmatch package for a full copy of their license agreement.

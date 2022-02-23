@@ -1,11 +1,11 @@
 ---
 title: "PCAmatchR: Match Cases to Controls Based on Genotype Principal Components"
 author: "Derek W. Brown, Timothy A. Myers, and Mitchell J. Machiela"
-date: "7/30/2020"
-output: rmarkdown::html_document
+date: "2/22/2022"
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{PCAmatchR: Match Cases to Controls Based on Genotype Principal Components}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{R.rsp::asis}
   %\VignetteEncoding{UTF-8}
 ---
 
@@ -36,6 +36,7 @@ Following installation, attach the *PCAmatchR* and *optmatch* packages with:
 ```{r eval=FALSE}
 library(PCAmatchR)
 library(optmatch)
+setMaxProblemSize(size = Inf) # optmatch option to allow for large matching problems. See optmatch documentation for full description. 
 ```
 
 ## Usage
@@ -89,6 +90,14 @@ PCA_matches<- match_maker_output$matches
 PCA_matches$match_distance
 ```
 
+### Note 
+The `all_eigen_vals` file is not needed to run `match_maker`. The user can directly supply the scalar sum of all eigen values to the `match_maker` function through the `eigen_sum` input. In the above example, the sum of all the eigenvalues was 2722.856. This value is used to weight each eigen value to determine the percentage of variance explained. 
+
+If using PLINK to perform the PCA (*e.g.*, `--pca` flag), there are multiple options to calculate the sum of all eigen values instead of having to generate all PCs:
+
+* The first is to create a relationship matrix using `--make-rel` in PLINK. The diagonal of this matrix is equal to the eigen values. Summing the diagonal will obtain the integer to input into `eigen_sum`. This approach may not be feasible when working with a large number of cases and controls, due to the file size. 
+* The second is to generate the GCTA inbreeding coefficient report using `--ibc` in PLINK. This will output a file with 6 columns. Column 4 (`Fhat1`), gives the variance-standardized relationship minus 1. Add 1 to each entry in this column, and then sum all entries. This will result in the total sum of the eigen values (*i.e.*, the total variance explained). This value can then be used as the input to `eigen_sum`.
+    
 ### Case-Control Matching Visualization
 The distance between matches can be visualized using `plot_maker`: 
 ```{r eval=TRUE}

@@ -30,6 +30,7 @@ context("match_maker")
   }
 )
 
+if(requireNamespace("optmatch", quietly = TRUE)){
 library(optmatch)
 
 test_that("PCamtachR throws error with invalid arguments", {
@@ -116,5 +117,5 @@ test_that("weights has correct dimension", {
  }
 )
 
-
+}
 
