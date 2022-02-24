@@ -1,5 +1,13 @@
-# PCAmatchR (development verion)
-* Release date: TBD
+# PCAmatchR 0.3.1
+* Release date:  2022-02
+* conditionally suggest `optmatch` package in examples and testthat, per CRAN request
+* Create a static vignette
+* Add extra notes to the vignette
+* Add citation for publication
+* Add ORCID IDs to Authors@R in description file.
+* Update license file to include information about the `optmatch` package academic license
+* Update RoxygenNote version in description file to 7.1.2
+* Delete maintainer field in description file
 
 # PCAmatchR 0.3.0
 * Release date: 2021-01-10
