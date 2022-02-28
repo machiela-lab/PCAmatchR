@@ -46,8 +46,9 @@ cov_data <- PCs_1000G[,c(1:4)]
 # Generate a case status variable using ESN 1000 Genome population
 cov_data$case <- ifelse(cov_data$pop=="ESN", c(1), c(0))
 # With 1 to 1 matching
-library(optmatch)
-match_maker_output<- match_maker(PC = pcs,
+ if(requireNamespace("optmatch", quietly = TRUE)){
+ library(optmatch)
+ match_maker_output<- match_maker(PC = pcs,
                                  eigen_value = eigen_vals,
                                  data = cov_data,
                                  ids = c("sample"),
@@ -55,14 +56,15 @@ match_maker_output<- match_maker(PC = pcs,
                                  num_controls = 1,
                                  eigen_sum = sum(all_eigen_vals),
                                  weight_dist=TRUE
-                                )
+                                 )
 
 # run plot_maker()
-plot_maker(data=match_maker_output,
-                     x_var="PC1",
-                     y_var="PC2",
-                     case_control="case",
-                     line=TRUE)
+ plot_maker(data=match_maker_output,
+            x_var="PC1",
+            y_var="PC2",
+            case_control="case",
+            line=TRUE)
+ }
 }
 
 }
