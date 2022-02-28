@@ -1,12 +1,20 @@
-## This is the fourth release
-* Adds requested changes to package to make the `optmatch` package conditionally suggested
-in examples and testthat.
+## Resubmission
+This is a resubmission. In this version we have:
+
+* Fixed the plot_maker function to conditionally suggest `optmatch`
+  in example.
+* Deleted unacceptable LICENSE component.
+* Incremented version number.
+
+## This is the fourth package release
+* Adds requested changes to package to make the `optmatch` package 
+  conditionally suggested in examples and testthat.
 * Create static vignette.
 * Other minor changes
  
 ## Test environments
-* local OS X install, R 4.1.2
-* local Windows 10 install, R 3.6.3
+* local OS X (Catalina, v. 10.15.7) install, R 4.1.2 (--as-cran)
+* local Windows 10 install, R 3.6.3 (--as-cran)
 * win-builder, (devel, oldrelease, release)
 * Rhub:
   * Windows Server 2022, R-devel, 64 bit
@@ -18,7 +26,7 @@ in examples and testthat.
 ## R CMD check results
 There were no ERRORs or WARNINGs.
  
-There was 1 NOTE:
+There was 1 NOTE from Rhub tests only:
  
 * checking package dependencies ... NOTE
   Package suggested but not available for checking: 'optmatch'
