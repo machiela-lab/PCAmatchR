@@ -1,11 +1,11 @@
 Package: PCAmatchR
 Title: Match Cases to Controls Based on Genotype Principal Components
-Version: 0.3.2
+Version: 0.3.3
 Authors@R: 
     c(person(given = "Derek W.",
              family = "Brown",
              role = c("aut", "cre"),
-             email = "derek.brown@nih.gov",
+             email = "derek9@gwmail.gwu.edu",
              comment = c(ORCID = "0000-0001-8393-1713")),
       person(given = "Mitchel J.",
              family = "Machiela",
