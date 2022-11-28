@@ -1,3 +1,7 @@
+# PCAmatchR 0.3.3
+* Change maintainer email address
+* Update version number
+
 # PCAmatchR 0.3.1
 * Release date:  2022-02
 * conditionally suggest `optmatch` package in examples and testthat, per CRAN request
