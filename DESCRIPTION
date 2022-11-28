@@ -37,4 +37,4 @@ Suggests:
     rmarkdown,
     R.rsp
 VignetteBuilder: R.rsp
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.2
