@@ -1,5 +1,6 @@
 ## This is the fifth package release
 * Change maintainer email address
+* Add mandatory ‘Maintainer’ field to Description file
 * Increment version number
 * Update RoxygenNote version in description file to 7.2.2
  
