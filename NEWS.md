@@ -1,6 +1,6 @@
 # PCAmatchR 0.3.3
 * Change maintainer email address
-* Update version number
+* Increment version number
 * Update RoxygenNote version in description file to 7.2.2
 
 # PCAmatchR 0.3.1
